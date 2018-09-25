@@ -2,15 +2,17 @@
 <html>
     <head>
         <title>Start Page</title>
+        <script src="javascript/login_signup.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="style/startPageStyle.css" />
     </head>
-    <body class="item active" style="background-image: url(bb.jpeg)">
-        <div class="row">
+    <body id="active" style="background-image: url(bb.jpeg)">
+        <div class="col-lg-12">
             <header>
                 <div class="col-lg-1" id="logo">
                     <svg width="230" height="65" viewBox="0 0 265 74" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -23,17 +25,38 @@
                     <image id="image0" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfiCBcMFzKuqBi8AAAGz0lEQVRo3u3ZeYxdVR0H8M9MW4ZulBaBMm0tlFbrggVsSyclskUsEhTFoFAsKG1BsGCbiBpc4soiS4LRUmJTCWIMVAKVBEQhEiMjtsGyWCldgKEtLa1d6D5j5+cf97439725970ZK+k/fG8yeeec3/I95557zu/3Gw4x+hyUdoOzNdly6Oh/WThg1MGYaDwoApPQ6NRDR6Ah8/eQEPg/4F0C7xLoW3P0RGcaaaSjrLBMq009tDreZJM022C91zxue++JNZnpL6Li2WtO1Sd3txAurOgb7FdVevs84Lzeuf+w56uMlJ7HDKpJ4CPWFGj+znt66v4q+1KlN91llvO1mO2htO+uGgQO81Iq9ZDZWkxzudusL1s7syfuL9IphFedX3VVXa1dOGBKIYHvCmG/mRV6fVzgNSG8bUI996fYLYT7HZEz+gMhLC8gMNp+IXw7R/MI9wlhnRG13A/wqhB+W3C+90/Hx+YSuFYIax2eq9vgQSG01ro7bhbCMwUm4AYhXJNLYIkQbijU7W+pEL5UJPBB7cIex9dYowlCeDiHQD87haj5lhMPmwzJH/5z4RvMLuRG4a0cAqcKYWOdy/lWIdyZN3SJEFZpUhvLRflkyxKYUrVB8zHIG0KH95U6uu6Cr4Pr7PdOYpd56Ov6agKnOwWtHntH3cNiKzGj9JmXCFwH5vfS2MDM354i/AKDXJ7tHKlD2FLx+R1ZcHYvF7alv5OD9w5wWo09cELFmTrELmFldrv+WAi3ZYRG2Wmv6TnGVggbwQXpGb/DsThZCCu6yfexSHi2oi/ZvOd2dawSOsvnG5wjhP/kUFgrrEaLt8o33VLDjU3PwWr3v05vgezqniSEhaXmMUL4W4Vi6eDsTmGDsNz09MZ8LT2cX3euEDbkuu80q8rKKmFVqXFhtxcAfQsobBX2pjNvc4JRVqXhSghbc91/pds63iuE5qTxUyF8pptQF4VPlvvGlGOF8IYxoNm/MtHPmLLs/EL3XC2ES5LGM0I4JkesROFRNLo2vUxCOGC+YWW5gW5Kr+JkR1yjQX/the5Ld8p8aLJfeEU++vqZNp/GN8sOOj3ho90kx1msoywzB3d43RUFdhu9XfpmpgphkXqYJYTVvmN0ocxw37BS2GZaXXt/EsLRzBaiKogqzf5cN5mRWbaWumZhSjnq6WO6Cwqiix8J4azS0n68avgcC2xOl/NDYEBdx4d1+329EHb6jc/qXyV9jRA+zy1CmFgxeGMmnN5ihL6e1GF2Ovo5benx24Umf7XT2Wnrdu0W4oqMnXVOrNC4pLRX7hGiavCRVOkFNxqFuUK4Lx19SgjvrdA4Xwj3pK3nhHAppvtDeWtWfg/ThPBDFguR+aRgoiW+Z3zaGm6HEM5J208I4fQKjdmZa4mZ6ZyTe/IoV3rcMiOrdkoIC3hS6KxZrEoC6gfL7YWlt5fB94UwN201WiaEn9Sw+v4kumw0DDsdKBSc4DLsMa/c8wZUzac5M0KnOQLzco+3BMmVfkyjoeVGPj4Gfl42XnJTmWCMqCBAq0fRlMmiqrG9RGBYHQKTwFOZnracFRiRGZHRmFhot92ehMBA7K5BYCJVl3XRK+ioqB+01iHAXgxgd81guo8O4YWKvoFpBNCFpjSdzSJJVNYqRruwq9E+HFkodMAvba1KJHbbU6WTnHJbK6Q63GqbuwstD9AvWYV1mUSjZ+ibE3y1C2t6ZaU5iSmSFTiiV8WqZO6bK/q2UHWY9czK3kZ70WBwL1SH5xDYjCG9slIm8Gam2TN8Ajxf0bcMDb0qRSUe2xrTWKg3BC4GSyr6HoHcPKIISYr+SmMaHPecwFdNxgZ/r+j9ox34lC/2cgVe4TwhXNVDtZPS8Lt7DD0jDT7G9dDSAiGczYmSKl5P0N8/u6LZbnhACMtqFHiyWCuEkfSxXdhep2gLg9NQ5KVu4VWCYdYJ4emiEkwGybTXJwlqshhT66gcnd7xO5xUKHNW+oKed1wda0licnPSaCkFRzUw2sq0BnRKTbkzbE/PybE15ZKK2gdKzZeFLYYWCDe4zJtCWFMVO+ZhQiq73dcKX2uLzsqU/Vul+CwHk7WmQeU/HFvXPZyQpqthRbdwH4akpfBMkDrU6+nuzsaG/U11b1o57nRfbvE2H0e7P9ULD7u4Ipca50UhPJfU40plkhZP64dNfm+VfzvZFBP0S0dbza2qcdTHae7MZFJvedbLjjXeJA3YZrLVlQpn2JRJI7qeNpf+z/8Z/EJaJa9+XszfS81uty0jtscSMwu++Z7icBdZlJlah6WuzNqsnls/xxvjOJu0WWPfQTnPYrBmQ22wvkYCcGjwX0s3JJGM+e+fAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTA4LTIzVDEyOjIzOjUwKzAyOjAwm47QbwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0wOC0yM1QxMjoyMzo1MCswMjowMOrTaNMAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
                     </defs>
                     </svg>
-
                 </div>
                 <div class="col-lg-9"></div>
                 <div class="col-lg-2">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-link">Log in</button>
-                        <button type="button" class="btn btn-default">Sign up</button>
+                    <div  id="btn-group" class="btn-group">
+                        <button id= "loginbtn" type="button" class="btn btn-link btn-lg" onclick="showLoginForm();">Log in</button>
+                        <button id="signupbtn" type="button" class="btn btn-link btn-lg" onclick="showRegistrationForm();">Sign up</button>
                     </div>
                 </div>
             </header>
         </div>
-        <div class="row"></div>
+        <div id="mainContent">
+            <div class="col-lg-12" id="headline">
+                <h1>Manage your asthma and take control of your health</h1>
+            </div>
+            <div class="col-lg-12" id="mainText">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <p>
+                        Using weather predictions and an asthma calendar to track your<br>
+                        asthma and your medication, you can do anything.<br>
+                        Asthma shouldn't stop you! <br>
+                    </p>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+            <div class="col-lg-12" id="link">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-5">
+                    <a href="https://www.webmd.com/asthma/guide/asthma-symptoms#1" target="_blank">Learn more!</a>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
     </body>
 </html>
