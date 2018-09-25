@@ -65,7 +65,10 @@ function showLoginForm() {
     var main = document.getElementById('mainContent');
     var registration = [
         '<div class="login_form" id="login_form">',
+        '<div class="col-sm-12" id="pedia"><br></div>',
         '<div class="col-sm-12" id="pedia">',
+        '<div class="col-xs-5"></div>',
+        '<i class="fa fa-user-circle-o" style="font-size:110px;"></i>',
         '</div>', //12
         '<div class="col-sm-12" id="pedia">',
         '<div class="col-xs-4"></div>',
@@ -78,15 +81,23 @@ function showLoginForm() {
          <br><label for="password">Password:</label>\n\
          <input type="password" class="form-control" id="password" placeholder="Enter Password" name="pw" pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,10}" title="Must contain 8 until 10 characters, at least one letter, one number and one special character" required>',
         '</div>', //4
-        '</div><br><br>', //12
+        '</div>',
+        '<div class="col-sm-12" id="pedia"><br><br></div>', //12
+
         '<div class="col-sm-12" id="pedia">',
-        '<div class="col-xs-6"></div>',
+        '<div class="col-xs-5"></div>',
         '<div class="col-xs-2">',
         '<input type="button" value="Login" class="btn btn-default btn-lg" onclick="sendAjaxPostLogin();">',
         '</div>',
         '<div class="col-xs-2" id="ajaxContent"></div>',
         '</div>',
-        '</div>'//login
+        '</div>', //login
+        '<div class="col-sm-12" id="notAmember">',
+        '<div class="col-xs-4"></div>',
+        '<div class="col-xs-4" id="not">',
+        '<p>Not a member?<button type="button" class="btn btn-link" onclick="showRegistrationForm();">Sign Up</button></p>',
+        '</div>',
+        '</div>'
     ].join("\n"); // Create a string that holds the HTML code of the registration form
     main.innerHTML = registration;
 

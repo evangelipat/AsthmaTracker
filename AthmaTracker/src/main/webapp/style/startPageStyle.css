@@ -59,3 +59,12 @@ body{
     position:absolute;
     top:120%;
 }
+#notAmember{
+    position: absolute;
+    top:80%;
+}
+#not{
+    position: absolute;
+    left: 38%;
+}
+
