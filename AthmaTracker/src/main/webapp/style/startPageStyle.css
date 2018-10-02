@@ -65,6 +65,17 @@ body{
 }
 #not{
     position: absolute;
-    left: 38%;
+    left: 42%;
 }
-
+#buttonLogin{
+    position: absolute;
+    top:70%;
+}
+#user{
+    position:absolute;
+    left:45%;
+}
+#loginform{
+    position: absolute;
+    top:40%;
+}

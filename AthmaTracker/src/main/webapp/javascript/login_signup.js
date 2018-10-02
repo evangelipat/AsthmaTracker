@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+'use strict';
 
 function showRegistrationForm() {
     document.getElementById("active").setAttribute("style", "background-color:#b1cff9;");
@@ -45,7 +46,7 @@ function showRegistrationForm() {
         '<input type="button" id="signup_btn" value="Sign Up" class="btn btn-default btn-lg" onclick="sendAjaxPost();">',
         '</div>',
         '</div>', //registration
-        '<div class="m">',
+        // '<div class="m">',
         '<br><div class="col-sm-12" id="member">',
         '<div class="col-xs-5"></div>',
         '<div class="col-xs-4">',
@@ -65,37 +66,37 @@ function showLoginForm() {
     var main = document.getElementById('mainContent');
     var registration = [
         '<div class="login_form" id="login_form">',
-        '<div class="col-sm-12" id="pedia"><br></div>',
-        '<div class="col-sm-12" id="pedia">',
-        '<div class="col-xs-5"></div>',
+        '<div class="col-sm-12"><br></div>',
+        '<div class="col-sm-12">',
+        '<div class="col-xs-5" id="user">',
         '<i class="fa fa-user-circle-o" style="font-size:110px;"></i>',
+        '</div>',
         '</div>', //12
         '<div class="col-sm-12" id="pedia">',
         '<div class="col-xs-4"></div>',
         '</div>', //12
-        '<div class="col-sm-12" id="pedia">',
+        '<div class="col-sm-12" id="loginform">',
         '<div class="col-xs-4"></div>',
-        '<div class="col-xs-3">',
+        '<div class="col-xs-4">',
         '<label for="email">Email:</label>\n\
          <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="e.g. example@example.com" required>\n\
          <br><label for="password">Password:</label>\n\
          <input type="password" class="form-control" id="password" placeholder="Enter Password" name="pw" pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,10}" title="Must contain 8 until 10 characters, at least one letter, one number and one special character" required>',
         '</div>', //4
-        '</div>',
-        '<div class="col-sm-12" id="pedia"><br><br></div>', //12
-
-        '<div class="col-sm-12" id="pedia">',
-        '<div class="col-xs-5"></div>',
-        '<div class="col-xs-2">',
+        '</div>', //12
+        //'<div class="col-sm-12" id="pedia"><br><br></div>', //12
+        '<div class="col-sm-12" id="buttonLogin">',
+        '<div class="col-xs-4"></div>',
+        '<div class="col-xs-4" id="user">',
         '<input type="button" value="Login" class="btn btn-default btn-lg" onclick="sendAjaxPostLogin();">',
-        '</div>',
+        '</div>', //4
         '<div class="col-xs-2" id="ajaxContent"></div>',
-        '</div>',
-        '</div>', //login
+        '</div>', //12
         '<div class="col-sm-12" id="notAmember">',
         '<div class="col-xs-4"></div>',
         '<div class="col-xs-4" id="not">',
         '<p>Not a member?<button type="button" class="btn btn-link" onclick="showRegistrationForm();">Sign Up</button></p>',
+        '</div>',
         '</div>',
         '</div>'
     ].join("\n"); // Create a string that holds the HTML code of the registration form
