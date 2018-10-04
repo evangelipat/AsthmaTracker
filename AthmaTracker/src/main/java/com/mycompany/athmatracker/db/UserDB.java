@@ -16,36 +16,41 @@ import java.util.logging.Logger;
  *
  * @author eveli
  */
+//TODO ADD, UPDATE, DELETE kai isws getuser?
 public class UserDB {
 
-    public static void main(String args[]) throws ClassNotFoundException {
-        boolean valid = true;
-        String email = "evelinpats@gmail.com";
-        Connection con;
-        try {
-            con = DBconnection.getConnection();
-            Statement stm = con.createStatement();
+    /**
+     * checks if the email exist, if it does then returns true else returns
+     * false
+     */
+    public static boolean checkExistingEmail(String email) throws ClassNotFoundException {
 
-            //   String query = "select * from users";
+        boolean valid = true;
+        Connection connection;
+        try {
+            connection = DBconnection.getConnection();
+            Statement stm = connection.createStatement();
+
             StringBuilder query = new StringBuilder();
             query.append("SELECT * FROM users ")
                     .append(" WHERE ").append(" EMAIL = ").append("'").append(email).append("';");
 
-            //ResultSet rs = stm.executeQuery(query);
             stm.execute(query.toString());
             ResultSet rs = stm.getResultSet();
-            while (rs.next()) {
-                String first = rs.getString("email");
-                String second = rs.getString("password");
-                String third = rs.getString("name");
-                System.out.println("first->" + first + " ,second->" + second + ",third->" + third);
-
+            if (rs.next()) {
+                valid = true;
+                System.out.println("AsthmaTrackerDB::The member already exist");
+            } else {
+                valid = false;
             }
+
+            stm.close();
+            connection.close();
 
         } catch (SQLException ex) {
             Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return valid;
     }
 
 }
