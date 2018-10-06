@@ -15,9 +15,8 @@ function sendAjaxPostLogin() {
             document.getElementById('mainContent').innerHTML = xhr.responseText;
         } else {
             document.getElementById('ajaxContent').innerHTML = xhr.responseText;
-            alert('Request failed. Returned status of ' + xhr.status + xhr.responseText);
-            alert();
         }
+        alert(xhr.status);
     };
 
     xhr.open('POST', 'LoginServlet');

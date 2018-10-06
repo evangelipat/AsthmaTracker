@@ -5,6 +5,7 @@
  */
 package com.mycompany.athmatracker.db;
 
+import com.mycompany.athmatracker.model.User;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author eveli
  */
-//TODO ADD, UPDATE, DELETE kai isws getuser?
+//TODO ADD, UPDATE, DELETE 
 public class UserDB {
 
     /**
@@ -53,4 +54,38 @@ public class UserDB {
         return valid;
     }
 
+    public static User getUser(String email) throws ClassNotFoundException, SQLException {
+
+        User user = new User();
+        Connection connection = null;
+
+        try {
+            connection = DBconnection.getConnection();
+            Statement stm = connection.createStatement();
+
+            StringBuilder query = new StringBuilder();
+            query.append("SELECT * FROM users ")
+                    .append(" WHERE ").append(" EMAIL = ").append("'").append(email).append("';");
+
+            stm.execute(query.toString());
+            ResultSet rs = stm.getResultSet();
+            if (rs.next()) {
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setName(rs.getString("name"));
+                user.setSurname(rs.getString("surname"));
+                user.setBirth_date(rs.getString("birth_date"));
+                user.setHeight(rs.getDouble("height"));
+                user.setGender(rs.getInt("gender"));
+            }
+
+            stm.close();
+            connection.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return user;
+    }
 }

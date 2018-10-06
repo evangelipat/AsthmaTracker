@@ -6,8 +6,10 @@
 package com.mycompany.athmatracker.servlets;
 
 import com.mycompany.athmatracker.db.UserDB;
+import com.mycompany.athmatracker.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -40,16 +42,33 @@ public class LoginServlet extends HttpServlet {
             String password = request.getParameter("password");
 
             if (UserDB.checkExistingEmail(email)) {   //if true ok, when check password
+
+                User eve = UserDB.getUser(email);
+                System.out.println("pass" + eve.getPassword());
                 //check for password?1
+                if (UserDB.getUser(email).getPassword().equals(password)) {
+                    out.println("<h3>Welcome back</h3>");
+                } else {
+                    out.println("<div class=\"col-sm-12\" id=\"pedia\">\n"
+                            + " <div class=\"col-xs-6\" id=\"login_page\">");
+                    out.println("Wrong password");
+                    out.println("</div>");
+                    out.println("</div>");
+                    response.setStatus(400);
+                    System.out.println("wrong password");
+                }
+
             } else {
                 out.println("<div class=\"col-sm-12\" id=\"pedia\">\n"
                         + " <div class=\"col-xs-6\" id=\"login_page\">");
-                out.println("Wrong email or password");
+                out.println("Wrong email");
                 out.println("</div>");
                 out.println("</div>");
                 response.setStatus(400);
-                System.out.println("wrong email or password");
+                System.out.println("wrong email");
             }
+        } catch (Exception ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
