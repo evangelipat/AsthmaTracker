@@ -17,7 +17,7 @@ body{
 #logo {
     position: relative;
     float: left;
-    left:20px;
+    left:-15px;
 }
 
 
@@ -57,7 +57,7 @@ body{
 }
 #member{
     position:absolute;
-    top:120%;
+    top:95%;
 }
 #notAmember{
     position: absolute;
@@ -78,4 +78,9 @@ body{
 #loginform{
     position: absolute;
     top:40%;
+}
+#ajaxContentS{
+    position:absolute;
+    top:95%;
+    left: 55%;
 }

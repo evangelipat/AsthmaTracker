@@ -6,10 +6,8 @@
 package com.mycompany.athmatracker.servlets;
 
 import com.mycompany.athmatracker.db.UserDB;
-import com.mycompany.athmatracker.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -22,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author eveli
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "CheckEmail", urlPatterns = {"/CheckEmail"})
+public class CheckEmail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,40 +33,22 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String email = request.getParameter("email");
-            String password = request.getParameter("password");
 
-            if (UserDB.checkExistingEmail(email)) {   //if true ok, when check password
-
-                User eve = UserDB.getUser(email);
-                System.out.println("pass" + eve.getPassword());
-                //check for password?1
-                if (UserDB.getUser(email).getPassword().equals(password)) {
-                    //out.println("<h3>Welcome back</h3>");
-                } else {
-                    out.println("<div class=\"col-sm-12\">\n"
-                            + " <div class=\"col-xs-6\">");
-                    out.println("Wrong password");
-                    out.println("</div>");
-                    out.println("</div>");
+            try {
+                if (UserDB.checkExistingEmail(email)) {
+                    System.out.println("this email already exist");
+                    out.println("The member with email " + email + " already exists");
                     response.setStatus(400);
-                    System.out.println("wrong password");
+                } else {
+                    System.out.println("this email doesn't exist");
                 }
-
-            } else {
-                out.println("<div class=\"col-sm-12\" id=\"pedia\">\n"
-                        + " <div class=\"col-xs-6\" id=\"login_page\">");
-                out.println("Wrong email");
-                out.println("</div>");
-                out.println("</div>");
-                response.setStatus(400);
-                System.out.println("wrong email");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(CheckEmail.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (Exception ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -84,11 +64,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -102,11 +78,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

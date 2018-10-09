@@ -18,34 +18,36 @@ public class User {
 
     private String email;
     private String password;
-    private String name;
-    private String surname;
+    private String firstname;
+    private String lastname;
     private String birth_date;
-    private int gender;
+    private String gender;
     private double height;
 
     public User() {
         this.email = "";
         this.password = "";
-        this.name = "";
-        this.surname = "";
+        this.firstname = "";
+        this.lastname = "";
         this.birth_date = "";
-        this.gender = 0;
+        this.gender = "";
         this.height = 0;
     }
 
-    public User(String email, String password, String birthDate, int gender) {
+    public User(String email, String password, String firstname, String lastname, String birthDate, String gender) {
         this.email = email;
         this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.birth_date = birthDate;
         this.gender = gender;
     }
 
-    public User(String email, String password, String name, String surname, String birthDate, double height, int gender) {
+    public User(String email, String password, String firstname, String lastname, String birthDate, double height, String gender) {
         this.email = email;
         this.password = password;
-        this.name = name;
-        this.surname = surname;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.birth_date = birthDate;
         this.gender = gender;
         this.height = height;
@@ -67,20 +69,20 @@ public class User {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getBirth_date() {
@@ -99,11 +101,11 @@ public class User {
         this.height = height;
     }
 
-    public int getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

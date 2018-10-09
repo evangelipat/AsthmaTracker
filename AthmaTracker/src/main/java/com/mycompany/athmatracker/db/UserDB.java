@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author eveli
  */
-//TODO ADD, UPDATE, DELETE 
+//TODO  UPDATE, DELETE 
 public class UserDB {
 
     /**
@@ -72,11 +74,11 @@ public class UserDB {
             if (rs.next()) {
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
-                user.setName(rs.getString("name"));
-                user.setSurname(rs.getString("surname"));
+                user.setFirstname(rs.getString("firstname"));
+                user.setLastname(rs.getString("lastname"));
                 user.setBirth_date(rs.getString("birth_date"));
                 user.setHeight(rs.getDouble("height"));
-                user.setGender(rs.getInt("gender"));
+                user.setGender(rs.getString("gender"));
             }
 
             stm.close();
@@ -87,5 +89,38 @@ public class UserDB {
         }
 
         return user;
+    }
+
+    public static void addUser(User user) throws ClassNotFoundException {
+
+        Connection connection = null;
+
+        try {
+            connection = DBconnection.getConnection();
+            Statement stm = connection.createStatement();
+
+            StringBuilder query = new StringBuilder();
+
+            query.append("INSERT INTO ")
+                    .append(" users (EMAIL, PASSWORD, FIRSTNAME, "
+                            + "LASTNAME, BIRTH_DATE, GENDER)")
+                    .append(" VALUES (")
+                    .append("'").append(user.getEmail()).append("',")
+                    .append("'").append(user.getPassword()).append("',")
+                    .append("'").append(user.getFirstname()).append("',")
+                    .append("'").append(user.getLastname()).append("',")
+                    .append("'").append(user.getBirth_date()).append("',")
+                    .append("'").append(user.getGender()).append("');");
+
+            stm.executeUpdate(query.toString());
+            System.out.println("AsthmaTrackerDB::The member was added with success");
+
+            stm.close();
+            connection.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }
