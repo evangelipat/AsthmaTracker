@@ -26,14 +26,18 @@ body{
     font-size: 28px;
 }
 
-#headline{
+.headline{
     color: black;
     font-family: Georgia, sans-serif;
     font-weight: 900;
     position: relative;
-    top:300px;
+
     text-align: center;
 }
+#headlineStartPage{
+    top:300px;
+}
+
 #mainText{
     color: #1E90FF;
     font-family: Georgia, serif;
@@ -83,4 +87,11 @@ body{
     position:absolute;
     top:95%;
     left: 55%;
+}
+#navbarForms{
+    background-color: #b1cff9;
+    height: 73px;
+}
+#registrationForm{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
