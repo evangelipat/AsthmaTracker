@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 11, 2018, 10:13:32 AM
+    Author     : eveli
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : Oct 9, 2018, 10:48:56 PM
+    Author     : eveli
+*/
+.nav.navbar-nav li a{
+    border: 1px solid #6AA4F3;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 20px 27px;
+}
+.nav.navbar-nav a:hover{
+    background-color: #b1cff9;
+}
+#navbar{
+    background-color:#6AA4F3;
+}
+#logoLogged {
+    position: relative;
+    float: left;
+    left:-15px;
+    top:-10px;
+}

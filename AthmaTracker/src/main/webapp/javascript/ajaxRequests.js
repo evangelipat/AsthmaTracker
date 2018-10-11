@@ -61,7 +61,7 @@ function sendAjaxPost() {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            document.getElementById('mainContent').innerHTML = xhr.responseText;
+            document.getElementById('active').innerHTML = xhr.responseText;
         } else if (xhr.status !== 200) {
             document.getElementById('ajaxContentS').innerHTML = xhr.responseText;
 
@@ -83,7 +83,7 @@ function sendAjaxPostLogin() {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            document.getElementById('mainContent').innerHTML = xhr.responseText;
+            document.getElementById('active').innerHTML = xhr.responseText;
         } else {
             document.getElementById('ajaxContent').innerHTML = xhr.responseText;
         }

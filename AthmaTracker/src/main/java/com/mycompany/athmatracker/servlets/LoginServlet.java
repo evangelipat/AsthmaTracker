@@ -47,7 +47,8 @@ public class LoginServlet extends HttpServlet {
                 System.out.println("pass" + eve.getPassword());
                 //check for password?1
                 if (UserDB.getUser(email).getPassword().equals(password)) {
-                    //out.println("<h3>Welcome back</h3>");
+                    response.setStatus(200);
+                    request.getRequestDispatcher("/jsp/homePage.jsp").forward(request, response);
                 } else {
                     out.println("<div class=\"col-sm-12\">\n"
                             + " <div class=\"col-xs-6\">");

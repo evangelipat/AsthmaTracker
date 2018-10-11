@@ -77,7 +77,7 @@ public class UserDB {
                 user.setFirstname(rs.getString("firstname"));
                 user.setLastname(rs.getString("lastname"));
                 user.setBirth_date(rs.getString("birth_date"));
-                user.setHeight(rs.getDouble("height"));
+                // user.setHeight(rs.getDouble("height"));
                 user.setGender(rs.getString("gender"));
             }
 
