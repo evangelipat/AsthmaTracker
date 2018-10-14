@@ -80,11 +80,11 @@
                         <li>Bronchodilators</li>
                     </ul>
                     <br>
-                    <p>Anti-inflammatory drugs suppress the inflammation that narrows the airways. Anti-inflammatory drugs include corticosteroids (which can be inhaled, taken by mouth, or given intravenously),
+                    <p><u>Anti-inflammatory drugs</u> suppress the inflammation that narrows the airways. Anti-inflammatory drugs include corticosteroids (which can be inhaled, taken by mouth, or given intravenously),
                         leukotriene modifiers, and mast cell stabilizers.</p>
-                    <p>Bronchodilators help to relax and widen (dilate) the airways. Bronchodilators include beta-adrenergic drugs
+                    <p><u>Bronchodilators</u> help to relax and widen (dilate) the airways. Bronchodilators include beta-adrenergic drugs
                         (both those for quick relief of symptoms and those for long-term control), anticholinergics, and methylxanthines.</p>
-                    <p>Immunomodulators, drugs that directly alter the immune system are sometimes used for people with severe asthma,
+                    <p><u>Immunomodulators</u>, drugs that directly alter the immune system are sometimes used for people with severe asthma,
                         but most people do not need immunomodulators. These drugs block substances in the body that cause inflammation.</p>
                     <hr>
                     <h3>Monitoring Asthma at Home</h3>

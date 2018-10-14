@@ -85,10 +85,10 @@
                     <br>
                     <h3>Asthma Severity</h3>
                     <p>Severity is a measure of how bad a disease is. Asthma severity is usually assessed before treatment is started, because people who have responded well to treatment have few symptoms. Asthma severity is categorized as:<br>
-                        Intermittent: The person's symptoms occur two days per week or less and do not interfere with activities of daily life.
-                        <br>Mild persistent: The person's symptoms occur more than twice per week but only slightly limit activities of daily life.
-                        <br>Moderate persistent: The person's symptoms occur daily and limit some activities of daily life.
-                        <br>Severe persistent: The person's symptoms occur throughout the day and interfere excessively with activities of daily life.
+                        <u>Intermittent:</u> The person's symptoms occur two days per week or less and do not interfere with activities of daily life.
+                        <br><u>Mild persistent:</u> The person's symptoms occur more than twice per week but only slightly limit activities of daily life.
+                        <br><u>Moderate persistent:</u> The person's symptoms occur daily and limit some activities of daily life.
+                        <br><u>Severe persistent:</u> The person's symptoms occur throughout the day and interfere excessively with activities of daily life.
                         <br>It is important to remember that the severity category does not predict how serious an attack a person may have. Even a person who has mild asthma with long periods of no or mild symptoms and normal lung function may have a severe, life-threatening asthma attack.
                     </p>
                 </div>
