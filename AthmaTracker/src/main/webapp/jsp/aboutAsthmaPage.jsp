@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Home Page</title>
+        <title>About Asthma</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="style/headerCss.css" />
+        <link rel="stylesheet" type="text/css" href="../style/headerCss.css" />
+        <link rel="stylesheet" type="text/css" href="../style/aboutAsthma.css">
     </head>
     <body>
+
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -35,10 +37,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="jsp/profilePage.jsp">Profile</a></li>
+                        <li><a href="profilePage.jsp">Profile</a></li>
                         <li><a href="#">Logbook</a></li>
-                        <li><a href="jsp/motivationPage.jsp">Motivation</a></li>
-                        <li><a href="jsp/aboutAsthmaPage.jsp">About Asthma</a></li>
+                        <li><a href="motivationPage.jsp">Motivation</a></li>
+                        <li><a href="aboutAsthmaPage.jsp">About Asthma</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -48,27 +50,54 @@
         </nav>
         <div class="container-fluid text-center">
             <div class="row content">
-                <div class="col-sm-2 ">
+                <div class="col-sm-2 sidenav" id="left-side">
+                    <p><a href="symptoms.jsp" style="color:white;">Symptoms</a></p>
+                    <br>
+                    <p><a href="triggers.jsp" style="color:white;">Triggers</a></p>
+                    <br>
+                    <p><a href="diagnosis.jsp" style="color:white;">Diagnosis</a></p>
+                    <br>
+                    <p><a href="treatment.jsp" style="color: white;">Treatment</a></p>
+                    <br>
+                    <p><a href="manageAnxiety.jsp" style="color:white;">Manage Anxiety</a></p>
+                    <br>
+                    <p><a href="https://www.akapnos.gr/" style="color:white;">Smoke free places</a></p>
                 </div>
-                <div class="col-sm-9 text-left">
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
+                <div class="col-sm-8 text-left" id="main">
+                    <h2>What is asthma</h2>
+                    <p>Asthma is a long-term lung condition. People with asthma have sensitive airways in their lungs which react to triggers,
+                        causing a flare-up. In a flare-up, the muscles around the airway squeeze tight, the airways swell and become narrow and there is more mucus.
+                        These things make it harder to breathe. An asthma flare-up can come on slowly (over hours, days or even weeks) or very quickly (over minutes). A sudden or severe asthma flare-up is sometimes called an asthma attack.
+                    </p>
+                    <br>
+                    <p>
+                        The exact cause of asthma isn't known. Researchers think some genetic and environmental factors interact to cause asthma, most often early in life. <br>
+                        These factors include:
+                    <ul>
+                        <li>An inherited tendency to develop allergies, called atopy</li>
+                        <li>Parents who have asthma</li>
+                        <li>Certain respiratory infections during childhood</li>
+                        <li>Contact with some airborne allergens or exposure to some viral infections in infancy or in early childhood when the immune system is developing</li>
+                    </ul>
+                    </p>
+                    <br>
+                    <p>If asthma or atopy runs in your family, exposure to irritants (for example, tobacco smoke) may make your airways more reactive to substances in the air.
+                        Some factors may be more likely to cause asthma in some people than in others. Researchers continue to explore what causes asthma.
+                    </p>
+                    <br>
+                    <h3>Asthma Severity</h3>
+                    <p>Severity is a measure of how bad a disease is. Asthma severity is usually assessed before treatment is started, because people who have responded well to treatment have few symptoms. Asthma severity is categorized as
+                        Intermittent: The person's symptoms occur two days per week or less and do not interfere with activities of daily life
+                        Mild persistent: The person's symptoms occur more than twice per week but only slightly limit activities of daily life
+                        Moderate persistent: The person's symptoms occur daily and limit some activities of daily life
+                        Severe persistent: The person's symptoms occur throughout the day and interfere excessively with activities of daily life
+                        It is important to remember that the severity category does not predict how serious an attack a person may have. Even a person who has mild asthma with long periods of no or mild symptoms and normal lung function may have a severe, life-threatening asthma attack.
+                    </p>
+                </div>
+                <div class="col-sm-2" id="left-side">
+                    <img src="../about.jpg" alt="airways" width="220" height="333">
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

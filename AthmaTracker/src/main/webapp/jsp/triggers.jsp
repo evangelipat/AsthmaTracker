@@ -1,15 +1,23 @@
+<%-- 
+    Document   : triggers
+    Created on : Oct 13, 2018, 1:47:48 PM
+    Author     : eveli
+--%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Home Page</title>
+        <title>About Asthma</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="style/headerCss.css" />
+        <link rel="stylesheet" type="text/css" href="../style/headerCss.css" />
+        <link rel="stylesheet" type="text/css" href="../style/aboutAsthma.css">
     </head>
     <body>
+
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -35,10 +43,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="jsp/profilePage.jsp">Profile</a></li>
+                        <li><a href="profilePage.jsp">Profile</a></li>
                         <li><a href="#">Logbook</a></li>
-                        <li><a href="jsp/motivationPage.jsp">Motivation</a></li>
-                        <li><a href="jsp/aboutAsthmaPage.jsp">About Asthma</a></li>
+                        <li><a href="motivationPage.jsp">Motivation</a></li>
+                        <li><a href="aboutAsthmaPage.jsp">About Asthma</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -48,27 +56,41 @@
         </nav>
         <div class="container-fluid text-center">
             <div class="row content">
-                <div class="col-sm-2 ">
+                <div class="col-sm-2 sidenav" id="left-side">
+                    <p><a href="symptoms.jsp" style="color:white;">Symptoms</a></p>
+                    <br>
+                    <p><a href="triggers.jsp" style="color:white;">Triggers</a></p>
+                    <br>
+                    <p><a href="diagnosis.jsp" style="color:white;">Diagnosis</a></p>
+                    <br>
+                    <p><a href="treatment.jsp" style="color: white;">Treatment</a></p>
+                    <br>
+                    <p><a href="manageAnxiety.jsp" style="color:white;">Manage Anxiety</a></p>
+                    <br>
+                    <p><a href="https://www.akapnos.gr/" style="color:white;">Smoke free places</a></p>
                 </div>
-                <div class="col-sm-9 text-left">
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
+                <div class="col-sm-8 text-left" id="main">
+                    <h2>Asthma triggers</h2>
+                    <br>
+                    <p>Certain conditions and environments may also trigger symptoms of asthma.<br> These triggers include: </p>
+                    <br>
+                    <ul>
+                        <li>Illness. Respiratory illnesses such as the flu and pneumonia can trigger asthma attacks.</li>
+                        <li>Exercise. Increased movement may make breathing more difficult.</li>
+                        <li>Irritants in the air. People with asthma may be sensitive to irritants such as chemical fumes, strong odors, and smoke.</li>
+                        <li>Allergens. Animal dander, dust mites, certain foods, such as eggs, nuts, and milk are just a few examples of allergens that can trigger symptoms.</li>
+                        <li>Extreme weather conditions. Conditions such as very high humidity or low temperatures may trigger asthma.</li>
+                        <li>Emotions. Shouting, laughing, and crying may trigger an attack.</li>
+                        <li>Pollen</li>
+                        <li>Dust mites or cockroaches</li>
+                        <li>Mold</li>
+                        <li>Fireplaces</li>
+                        <li>Sulfites and food preservatives</li>
+                        <li>Poor air quality that is high in nitric oxide, ozone, and sulfur dioxide gases</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
+

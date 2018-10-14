@@ -1,15 +1,24 @@
+<%-- 
+    Document   : diagnosis
+    Created on : Oct 13, 2018, 1:19:44 PM
+    Author     : eveli
+--%>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Home Page</title>
+        <title>About Asthma</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="style/headerCss.css" />
+        <link rel="stylesheet" type="text/css" href="../style/headerCss.css" />
+        <link rel="stylesheet" type="text/css" href="../style/aboutAsthma.css">
     </head>
     <body>
+
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -35,10 +44,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="jsp/profilePage.jsp">Profile</a></li>
+                        <li><a href="profilePage.jsp">Profile</a></li>
                         <li><a href="#">Logbook</a></li>
-                        <li><a href="jsp/motivationPage.jsp">Motivation</a></li>
-                        <li><a href="jsp/aboutAsthmaPage.jsp">About Asthma</a></li>
+                        <li><a href="motivationPage.jsp">Motivation</a></li>
+                        <li><a href="aboutAsthmaPage.jsp">About Asthma</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -48,27 +57,45 @@
         </nav>
         <div class="container-fluid text-center">
             <div class="row content">
-                <div class="col-sm-2 ">
+                <div class="col-sm-2 sidenav" id="left-side">
+                    <p><a href="symptoms.jsp" style="color:white;">Symptoms</a></p>
+                    <br>
+                    <p><a href="triggers.jsp" style="color:white;">Triggers</a></p>
+                    <br>
+                    <p><a href="diagnosis.jsp" style="color:white;">Diagnosis</a></p>
+                    <br>
+                    <p><a href="treatment.jsp" style="color: white;">Treatment</a></p>
+                    <br>
+                    <p><a href="manageAnxiety.jsp" style="color:white;">Manage Anxiety</a></p>
+                    <br>
+                    <p><a href="https://www.akapnos.gr/" style="color:white;">Smoke free places</a></p>
                 </div>
-                <div class="col-sm-9 text-left">
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
+                <div class="col-sm-8 text-left" id="main">
+                    <h2>Diagnosis</h2>
+                    <br>
+                    <p>
+                        Doctors suspect asthma based largely on a person's report of characteristic symptoms. Doctors confirm the diagnosis by doing breathing tests (pulmonary function tests). The most important of these tests are measures of the amount of air a person can blow out in one second. These tests are done before and after giving the person an inhaled drug, called a beta-adrenergic drug (or beta-adrenergic agonist), that reverses airway narrowing. If test results are significantly better after the person receives the drug, asthma is thought to be present.
+                        If the airways are not narrowed at the time of the test, a challenge test can help confirm the diagnosis. In a challenge test, pulmonary function is measured before and after the person inhales a chemical (usually methacholine, but histamine, adenosine, or bradykinin may be used) that can narrow the airways. The chemical is given in doses that are too low to affect a person with healthy lungs but that cause the airways to narrow in a person with asthma.
+                        Repeatedly measuring lung function over time allows doctors to determine the severity of the airway obstruction and the effectiveness of treatment.
+                        To test for exercise-induced asthma, an examiner uses pulmonary function tests to measure how much air the person can exhale in 1 second before and after the person exercises on a treadmill or stationary bicycle. If the volume of air decreases more than 15%, the person's asthma can be induced by exercise.
+                        Pulmonary function tests may also be useful when a diagnosis of asthma is not clear and wheezing and shortness of breath may be due to another disorder such as an interstitial lung disease, chronic obstructive pulmonary disease, or upper airway obstruction.
+                        A chest x-ray is usually not helpful in diagnosing asthma. Doctors use chest x-rays when considering another diagnosis. However, a chest x-ray is often obtained when a person with asthma needs to be hospitalized for a severe attack.
+                    </p>
+                    <br>
+                    <h3>Identifying asthma triggers with allergy testing</h3>
+                    <p>
+                        Determining what triggers a person's asthma is often difficult.
+                        Allergy testing is appropriate when there is a suspicion that some avoidable substance (for example, exposure to cat dander) is provoking attacks. Skin testing can help identify allergens that may trigger asthma symptoms. However, an allergic response to a skin test does not necessarily mean that the allergen being tested is causing the asthma. The person still has to note whether attacks occur after exposure to this allergen. If doctors suspect a particular allergen, a blood test that measures the level of antibody produced in response to the allergen (the radioallergosorbent test [RAST]) can be done to determine the degree of the person's sensitivity to the allergen.
+                    </p>
+                    <br>
+                    <h3>Evaluating an asthma attack</h3>
+                    <p>Because people who are having a severe asthma attack commonly have low blood oxygen levels, doctors may check the level of oxygen by using a sensing monitor on a finger or ear (oximetry). In severe attacks, doctors also need to measure levels of carbon dioxide in the blood, and this test typically requires obtaining a sample of blood from an artery or, occasionally, a vein. However, carbon dioxide levels can sometimes be monitored in the person's breath using a sensor placed in front of the nose or mouth.
+                        Doctors may also check lung function, usually with a spirometer (a mouthpiece and tubing connected to a recording device that is used to measure air flow in the lungs) or with a peak flow meter. Usually, a chest x-ray is needed only when asthma attacks are severe, in order to rule out other serious conditions (such as a lung collapse).
+                    </p>
+                    <br>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
+

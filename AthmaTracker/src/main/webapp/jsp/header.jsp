@@ -24,10 +24,10 @@
         </a>
     </div>
     <ul class="nav navbar-nav">
-        <li><a href="jsp/profile.jsp">Profile</a></li>
+        <li><a href="jsp/profilePage.jsp">Profile</a></li>
         <li><a href="#">Logbook</a></li>
-        <li><a href="jsp/motivation.jsp">Motivation</a></li>
-        <li><a href="jsp/aboutAsthma.jsp">About Asthma</a></li>
+        <li><a href="jsp/motivationPage.jsp">Motivation</a></li>
+        <li><a href="aboutAsthmaPage.jsp">About Asthma</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Log out &nbsp;&nbsp;<span class="glyphicon glyphicon-log-out"></span></a></li>

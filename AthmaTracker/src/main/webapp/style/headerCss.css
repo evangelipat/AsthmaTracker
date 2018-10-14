@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 11, 2018, 11:43:21 AM
+    Author     : eveli
+*/
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color:#6AA4F3;
+
+}
+.nav.navbar-nav li a{
+    color: white;
+    font-size: 17px;
+}
+.nav.navbar-nav li a:hover{
+    background-color: #b1cff9;
+}
+.nav.navbar-nav li a:focus{
+    background-color:#6AA4F3;
+}
+
+#logoLogged {
+    position: relative;
+    float: left;
+    left:-15px;
+    top:-10px;
+}
+.row.content {height: 800px;}
+
+.sidenav {
+    padding-top: 20px;
+    background-color: #b1cff9;
+    height: 100%;
+    text-align: left;
+    font-size:16px;
+}
+
+
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+        background-color: #b1cff9;
+    }
+    .nav.navbar-nav li a{
+        color: white;
+        font-size: 14px;
+    }
+    .sidenav {
+        padding-top: 20px;
+        background-color: #b1cff9;
+        height: 100%;
+        text-align: center;
+        font-size:14px;
+    }
+    .row.content {height:auto;}
+}

@@ -1,15 +1,23 @@
+<%-- 
+    Document   : symptoms
+    Created on : Oct 13, 2018, 12:05:46 PM
+    Author     : eveli
+--%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Home Page</title>
+        <title>About Asthma</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="style/headerCss.css" />
+        <link rel="stylesheet" type="text/css" href="../style/headerCss.css" />
+        <link rel="stylesheet" type="text/css" href="../style/aboutAsthma.css">
     </head>
     <body>
+
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -35,10 +43,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="jsp/profilePage.jsp">Profile</a></li>
+                        <li><a href="profilePage.jsp">Profile</a></li>
                         <li><a href="#">Logbook</a></li>
-                        <li><a href="jsp/motivationPage.jsp">Motivation</a></li>
-                        <li><a href="jsp/aboutAsthmaPage.jsp">About Asthma</a></li>
+                        <li><a href="motivationPage.jsp">Motivation</a></li>
+                        <li><a href="aboutAsthmaPage.jsp">About Asthma</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -48,27 +56,60 @@
         </nav>
         <div class="container-fluid text-center">
             <div class="row content">
-                <div class="col-sm-2 ">
+                <div class="col-sm-2 sidenav" id="left-side" style="height:850px;">
+                    <p><a href="symptoms.jsp" style="color:white;">Symptoms</a></p>
+                    <br>
+                    <p><a href="triggers.jsp" style="color:white;">Triggers</a></p>
+                    <br>
+                    <p><a href="diagnosis.jsp" style="color:white;">Diagnosis</a></p>
+                    <br>
+                    <p><a href="treatment.jsp" style="color: white;">Treatment</a></p>
+                    <br>
+                    <p><a href="manageAnxiety.jsp" style="color:white;">Manage Anxiety</a></p>
+                    <br>
+                    <p><a href="https://www.akapnos.gr/" style="color:white;">Smoke free places</a></p>
                 </div>
-                <div class="col-sm-9 text-left">
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="col-sm-8 text-left" id="main">
+                    <h2>Symptoms</h2>
+                    <br>
+                    <p>Asthma symptoms vary from person to person. You may have infrequent asthma attacks, have symptoms only at certain times, such as when <br>exercising or have symptoms all the time.
+                        <br> Asthma signs and symptoms include:</p>
+                    <ul>
+                        <li>Shortness of breath</li>
+                        <li>Chest tightness or pain</li>
+                        <li>Trouble sleeping caused by shortness of breath, coughing or wheezing</li>
+                        <li>A whistling or wheezing sound when exhaling (wheezing is a common sign of asthma in children)</li>
+                        <li>Coughing or wheezing attacks that are worsened by a respiratory virus, such as a cold or the flu</li>
+                    </ul>
+                    <br>Signs that your asthma is probably worsening include:
+                    <ul>
+                        <li>Asthma signs and symptoms that are more frequent and bothersome</li>
+                        <li>Increasing difficulty breathing (measurable with a peak flow meter, a device used to check how well your lungs are working)</li>
+                        <li>The need to use a quick-relief inhaler more often</li>
+                    </ul>
+                    <br>
+                    For some people, asthma signs and symptoms flare up in certain situations:
+                    <ul>
+                        <li>Exercise-induced asthma, which may be worse when the air is cold and dry</li>
+                        <li>Occupational asthma, triggered by workplace irritants such as chemical fumes, gases or dust</li>
+                        <li>Allergy-induced asthma, triggered by airborne substances, such as pollen, mold spores, cockroach waste or particles of skin <br> and dried saliva shed by pets (pet dander)</li>
+                    </ul>
+                    <br>
                     <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
+                    <h3>Symptoms of an asthma attack</h3>
+                    <p>Asthma can sometimes get worse for a short time - this is known as an asthma attack. It can happen suddenly, or gradually over a few days.
+                        <br>Signs of a severe asthma attack include:</p>
+                    <ul>
+                        <li>wheezing, coughing and chest tightness becoming severe and constant</li>
+                        <li>being too breathless to eat, speak or sleep</li>
+                        <li>breathing faster</li>
+                        <li>a fast heartbeat</li>
+                        <li>drowsiness, confusion, exhaustion or dizziness</li>
+                        <li>blue lips or fingers</li>
+                        <li>fainting</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

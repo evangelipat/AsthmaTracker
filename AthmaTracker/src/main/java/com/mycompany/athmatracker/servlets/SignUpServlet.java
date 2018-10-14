@@ -66,7 +66,7 @@ public class SignUpServlet extends HttpServlet {
                 UserDB.addUser(user);
                 out.println("Welcome to Astma Tracker" + firstname);
                 System.out.println("ola cool");
-                request.getRequestDispatcher("/jsp/homePage.jsp.jsp").forward(request, response);
+                request.getRequestDispatcher("/jsp/homePage.jsp").forward(request, response);
             }
 
         }
