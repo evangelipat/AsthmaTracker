@@ -65,8 +65,6 @@
                     <br>
                     <p><a href="treatment.jsp" style="color: white;">Treatment</a></p>
                     <br>
-                    <p><a href="manageAnxiety.jsp" style="color:white;">Manage Anxiety</a></p>
-                    <br>
                     <p><a href="https://www.akapnos.gr/" style="color:white;">Smoke free places</a></p>
                 </div>
                 <div class="col-sm-8 text-left" id="main">
@@ -108,6 +106,9 @@
                         <li>blue lips or fingers</li>
                         <li>fainting</li>
                     </ul>
+                </div>
+                <div class="col-sm-2" id="left-side">
+                    <img src="../sympng.png" alt="meter" width="220" height="260"  style="margin-top:50px;">
                 </div>
             </div>
         </div>

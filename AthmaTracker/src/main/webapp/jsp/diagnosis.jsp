@@ -66,8 +66,6 @@
                     <br>
                     <p><a href="treatment.jsp" style="color: white;">Treatment</a></p>
                     <br>
-                    <p><a href="manageAnxiety.jsp" style="color:white;">Manage Anxiety</a></p>
-                    <br>
                     <p><a href="https://www.akapnos.gr/" style="color:white;">Smoke free places</a></p>
                 </div>
                 <div class="col-sm-8 text-left" id="main">
