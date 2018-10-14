@@ -29,7 +29,11 @@ a{
     font-size: 25px;
     font-weight: bold;
 }
-
+#images-central{
+    padding-top: 10px;
+    width:1200px;
+    height:400px;
+}
 @media screen and (max-width: 767px) {
     #images{
         width:500px;
@@ -38,6 +42,11 @@ a{
     #motivation{
         padding-left: 0px;
         padding-right: 0px;
+    }
+    #images-central{
+        padding-top: 10px;
+        width:500px;
+        height:300px;
     }
 }
 
@@ -49,5 +58,12 @@ a{
     #motivation{
         padding-left: 0px;
         padding-right: 0px;
+    }
+    #images-central{
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 10px;
+        width:340px;
+        height:270px;
     }
 }
