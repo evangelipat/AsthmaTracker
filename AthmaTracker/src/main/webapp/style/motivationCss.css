@@ -48,6 +48,20 @@ a{
 #people{
     font-size: 18px;
 }
+#motivation-row{
+    margin-top: 30px;
+}
+.panel-body{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-bottom: 20px;
+    height:186px;
+    width: 330px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 20px;
+    font-style: italic;
+}
 @media screen and (max-width: 767px) {
     #images{
         width:500px;
@@ -76,7 +90,17 @@ a{
     #people{
         font-size: 16px;
     }
-
+    .panel-body{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-bottom: 20px;
+        height:170px;
+        width: 500px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        padding-top: 20px;
+        font-style: italic;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -108,5 +132,16 @@ a{
     }
     #people{
         font-size: 15px;
+    }
+    .panel-body{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-bottom: 20px;
+        padding-right: 10px;
+        height:170px;
+        width: 270px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        font-style: italic;
     }
 }

@@ -57,63 +57,48 @@
             </div>
         </nav>
         <div class="container-fluid text-center">
-            <div class="row content">
-                <div class="col-sm-12">
-                    <img id="images-central" src="../ski.jpeg" alt="ski">
+
+            <div class="container">
+                <div class="row" id="motivation-row">
+                    <div class="col-sm-4">
+                        <div class="panel-body" style="background-color: #C3C3E6;"><p>We are what we repeatedly do. Excellence, then, is not an art but a habit<br><br>~Aristotle~</p></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel-body" style="background-color: #B6A6CA;"><p>To keep the body in good health is a duty, otherwise we shall not be able to keep our mind strong and clear<br>~Buddha~</p></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel-body" style="background-color: #A09ABC;"><p>Today I will do what others won't, so tomorrow i can accomplish what others can't<br><br>~Jerry Rice~</p></div>
+                    </div>
                 </div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8 text-left" id="main">
-                    <h2>Exercise and asthma</h2>
-                    <p>Exercise is good for your asthma. In fact, many world-class athletes have asthma, including runners Paula Radcliffe and Jo Pavey,
-                        cyclists Laura Trott and Bradley Wiggins and footballers David Beckham and Paul Scholes.
-                        <br>
-                        The key message is that as long as you’re looking after your asthma well,
-                        and your symptoms are under control, you can enjoy any type of exercise, whether you choose to go for a brisk walk every day, join an exercise class, or even sign up for a marathon. And by giving your lungs a regular workout you’ll also cut your risk of asthma symptoms.
-                    </p>
-                    <br>
-                    <h3>Regular exercise can help reduce asthma symptoms by:</h3>
-                    <ul>
-                        <li>improving how well your lungs work so you have more stamina and get less breathless</li>
-                        <li>boosting your immune system so your asthma’s less likely to be triggered by coughs and colds</li>
-                        <li>supporting weight loss, which will cut your risk of symptoms and an asthma attack</li>
-                        <li>releasing ‘feel-good’ chemicals in your brain to lift your mood. Studies show that if you’re stressed or depressed you’re at higher risk of asthma symptoms as a result:
-                            staying happy and healthy really is good for your asthma. In a recent
-                            Asthma UK survey, 37 per cent of people with asthma told us exercising regularly makes them feel so much happier and healthier overall.</li>
-                    </ul>
-                    <br>
-                    <h3>Exercise keeps you healthy</h3>
-                    <p>As well as helping your asthma, regular exercise is good for your overall health too. Exercise can help your heart and lungs stay healthy and keep your bones and muscles strong.
-                        In fact studies have shown that people who keep physically active as they get older stay healthier than people who don't, with lower risk of heart disease, stroke, dementia and diabetes, as well as some types of cancer. So it’s definitely a good idea to make sure that exercise is part of your life in some form or another.
-                    </p>
-                    <br>
-                    <h3>Exercise for your child with asthma</h3>
-                    <p>Children benefit just as much as adults from exercise and need to spend at least one hour a day doing some kind of physical activity.
-                        As long as your child is able to manage their asthma well, and is keeping to a good routine of taking their asthma medicines, exercise will be good for them, and could give them more confidence about their asthma and what they’re able to do.
-                        The best thing you can do is lead by example! So make sure you’re keeping yourself fit and active too.
-                    </p>
-                    <br>
-                    <h3>How much is enough?</h3>
-                    <p>Government guidelines say adults need to do 150 minutes of exercise a week. You might find it easier to think of this as 30 minutes a day for five days.
-                        You don’t need to do 30 minutes all in one go – if you want you could break it down into blocks of ten minutes.
-                        Aim to be as active as you can every day. Even light activity is better for you than none at all, but to get the most benefits from exercise make sure you include activities that increase your heart rate.
-                        Not done any exercise before or getting back into it after a break? <br>You could start by:
-                    </p>
-                    <ul>
-                        <li>getting off the bus a few stops earlier to walk the rest of the way</li>
-                        <li>taking the stairs instead of the lift whenever you can</li>
-                        <li>leaving the car at home and walking instead</li>
-                        <li>fitting in a jog or a brisk walk around picking up the children from school</li>
-                        <li>walking the dog</li>
-                        <li>playing in the park with your children or grandchildren</li>
-                        <li>getting out in the garden</li>
-                    </ul>
-                    <br>
-                    <h3>Keep moving</h3>
-                    <p>The most important thing is to keep moving, at whatever level you can. Studies suggest that most of us spend far too
-                        much time sitting down at home, and at work.
-                        So if you do nothing else make sure you get up and move around as much as possible during the course of your day.</p>
-                    <br><br>
+            </div><br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="panel-body"  style="background-color: #90DDF0;"><p>Lack of activity destriys the good condition of every human being, while movement and methodical physical exercise save it and preserve it<br>~Plato~</p></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel-body"  style="background-color: #70D6FF;"><p>The pessimist sees difficulty in every opportunity. The optimist sees the opportunity in every difficulty<br>~Winston Churchill~</p></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel-body"  style="background-color: #2EC0F9;"><p>Whether you think you can or think you can not, you're right<br><br><br>~Henry Ford~</p></div>
+                    </div>
                 </div>
+            </div><br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="panel-body" style="background-color: #C4B2BC;"><p>The only limit to our realization of tomorrow will be our doubts of today<br><br>~Franklin D. Roosevelt~</p></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel-body" style="background-color: #F2D5F8;"><p>You are never too old to set another goal or to dream a new dream<br><br>~C.S. Lewis ~</p></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel-body" style="background-color: #E6C0E9;"><p>Reading is to the mind, as exercise is to the body<br><br><br>~Brian Tracy~</p></div>
+                    </div>
+                    <br>
+                </div>
+                <br>
             </div>
         </div>
     </body>
