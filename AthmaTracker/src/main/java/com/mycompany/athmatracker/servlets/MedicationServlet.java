@@ -5,8 +5,8 @@
  */
 package com.mycompany.athmatracker.servlets;
 
-import com.mycompany.athmatracker.db.UserDB;
-import com.mycompany.athmatracker.model.User;
+import com.mycompany.athmatracker.db.MedicationDB;
+import com.mycompany.athmatracker.model.Medication;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -17,14 +17,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author eveli
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "MedicationServlet", urlPatterns = {"/MedicationServlet"})
+public class MedicationServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,44 +35,38 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        HttpSession session = request.getSession(true);
+        String email = request.getSession().getAttribute("email").toString();
 
         try (PrintWriter out = response.getWriter()) {
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
 
-            if (UserDB.checkExistingEmail(email)) {   //if true ok, when check password
+            String name = request.getParameter("name");
+            int dosage = Integer.parseInt(request.getParameter("dosage"));
+            String action = request.getParameter("action");
+            int id = Integer.parseInt(request.getParameter("id"));
 
-                User eve = UserDB.getUser(email);
-                if (UserDB.getUser(email).getPassword().equals(password)) {
+            if (action.equals("add")) {
 
-                    response.setStatus(200);
-                    session.setAttribute("email", email);      //session
-                    request.getRequestDispatcher("/jsp/homePage.jsp").forward(request, response);
-                } else {
-                    out.println("<div class=\"col-sm-12\">\n"
-                            + " <div class=\"col-xs-6\">");
-                    out.println("Wrong password</div></div>");
-                    response.setStatus(400);
-                    System.out.println("wrong password");
-                    request.getSession().invalidate();          //akurwnei to session
-
-                }
+                Medication medication = new Medication(name, dosage);
+                MedicationDB.addMedication(email, medication);
+                System.out.println("ok! medication Servlet");
+                response.setStatus(200);
+                out.println("The medication was added succesfully, please refresh your page to load changes");
 
             } else {
-                out.println("<div class=\"col-sm-12\" id=\"pedia\">\n"
-                        + " <div class=\"col-xs-6\" id=\"login_page\">");
-                out.println("Wrong email</div></div>");
-                response.setStatus(400);
-                System.out.println("wrong email");
-                request.getSession().invalidate();          //akurwnei to session
+
+                MedicationDB.deleteMedication(id);
+                System.out.println("ok!delete");
+                response.setStatus(200);
+                out.println("The medication was deleted succesfully, please refresh your page to load changes");
 
             }
-        } catch (Exception ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MedicationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MedicationServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -89,11 +82,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -107,11 +96,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

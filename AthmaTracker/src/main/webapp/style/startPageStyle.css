@@ -8,12 +8,10 @@ and open the template in the editor.
     Author     : eveli
 */
 
-body{
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
+#StartHeader{
+    margin-top:0px;
+    background-color:#6AA4F3;
 }
-
 #logo {
     position: relative;
     float: left;
