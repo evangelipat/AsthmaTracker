@@ -30,8 +30,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a onclick="profileRequest();">Profile</a></li>
                 <li><a href="#">Logbook</a></li>
-                <li><a href="jsp/motivationPage.jsp">Motivation</a></li>
-                <li><a href="jsp/aboutAsthmaPage.jsp">About Asthma</a></li>
+                <li><a onclick="motivationPages('motivation');">Motivation</a></li>
+                <li><a onclick="aboutAsthmaPages('aboutAsthma');">About Asthma</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a onclick="logout();"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>

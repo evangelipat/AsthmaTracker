@@ -62,6 +62,15 @@ a{
     padding-top: 20px;
     font-style: italic;
 }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #6AA4F3;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 @media screen and (max-width: 767px) {
     #images{
         width:500px;

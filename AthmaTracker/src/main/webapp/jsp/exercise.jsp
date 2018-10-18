@@ -5,7 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@page import="com.mycompany.athmatracker.model.User"%>
+<%@page import="com.mycompany.athmatracker.db.UserDB"%>
+<% User user = UserDB.getUser(request.getSession().getAttribute("email").toString());%>
+<%--
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,8 +21,7 @@
         <link rel="stylesheet" type="text/css" href="../style/headerCss.css" />
         <link rel="stylesheet" type="text/css" href="../style/motivationCss.css"/>
     </head>
-    <body>
-
+<body>--%>
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -45,13 +47,14 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="profilePage.jsp">Profile</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a onclick="profileRequest();">Profile</a></li>
                         <li><a href="#">Logbook</a></li>
-                        <li><a href="motivationPage.jsp">Motivation</a></li>
-                        <li><a href="aboutAsthmaPage.jsp">About Asthma</a></li>
+                        <li><a onclick="motivationPages('motivation');">Motivation</a></li>
+                        <li><a onclick="aboutAsthmaPages('aboutAsthma');">About Asthma</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                        <li><a onclick="logout();"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -59,7 +62,7 @@
         <div class="container-fluid text-center">
             <div class="row content">
                 <div class="col-sm-12">
-                    <img id="images-central" src="../ski.jpeg" alt="ski">
+                    <img id="images-central" src="ski.jpeg" alt="ski">
                 </div>
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8 text-left" id="main">
@@ -116,5 +119,5 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
+<%--     </body>
+</html> --%>
