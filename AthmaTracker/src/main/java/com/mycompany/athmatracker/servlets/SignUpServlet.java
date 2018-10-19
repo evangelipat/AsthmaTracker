@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,6 +37,8 @@ public class SignUpServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession(true);
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String firstname = request.getParameter("firstname");
@@ -64,8 +67,8 @@ public class SignUpServlet extends HttpServlet {
 
                 User user = new User(email, password, firstname, lastname, birth_date, gender);
                 UserDB.addUser(user);
-                out.println("Welcome to Astma Tracker" + firstname);
-                System.out.println("ola cool");
+                session.setAttribute("email", email);      //session
+                response.setStatus(200);
                 request.getRequestDispatcher("/jsp/homePage.jsp").forward(request, response);
             }
 

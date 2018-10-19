@@ -19,10 +19,18 @@ and open the template in the editor.
     top:-10px;
 }
 
-
+#formForSignUp{
+    margin-left: 34%;
+}
 .btn-group {
     margin: 15px;
     font-size: 28px;
+}
+#loginbtn{
+    color:white;
+}
+#signupbtn{
+    color:white;
 }
 
 .headline{
@@ -55,24 +63,26 @@ and open the template in the editor.
 }
 #signup_btn{
     position:absolute;
-    top:50%;
-    left:110%;
+    top:100%;
+    left:40%;
 }
 #member{
     position:absolute;
     top:95%;
+    margin-left: 45%;
 }
 #notAmember{
     position: absolute;
-    top:80%;
+    margin-left: 42%;
 }
 #not{
     position: absolute;
-    left: 42%;
+    margin-top:30%;
 }
-#buttonLogin{
+
+#nott{
     position: absolute;
-    top:70%;
+    margin-top:35%;
 }
 #user{
     position:absolute;
@@ -81,6 +91,21 @@ and open the template in the editor.
 #loginform{
     position: absolute;
     top:40%;
+}
+#buttonLogin{
+    position: absolute;
+    top:100%;
+    margin-left: 45%;
+    top:60%;
+}
+#buttonLog{
+    top:60%;
+
+}
+
+
+#signInForms{
+    margin-left: 33%;
 }
 #ajaxContentS{
     position:absolute;
@@ -93,4 +118,307 @@ and open the template in the editor.
 }
 #registrationForm{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 767px) {
+    #ajaxContent{
+        color:red;
+        position: absolute;
+        margin-top:48%;
+        margin-left: 10%;
+    }
+    #user{
+        position:absolute;
+        left:40%;
+    }
+    .btn-group{
+        margin-left: 15%;
+    }
+    #headlineStartPage{
+        top:50px;
+    }
+    #mainText{
+        color: #1E90FF;
+        font-family: Georgia, serif;
+        font-size: 22px;
+        position: relative;
+        top:80px;
+        text-align: justify;
+    }
+    #formForSignUp{
+        margin-left: 25%;
+        width: 60%;
+    }
+    #signup_btn{
+        position:absolute;
+        top:100%;
+        left:33%;
+    }
+    #member{
+        position:absolute;
+        top:170%;
+        margin-left: 37%;
+    }
+    #buttonLogin{
+        position: absolute;
+        top:100%;
+        margin-left: 60%;
+        top:60%;
+    }
+    #buttonLog{
+        top:60%;
+
+    }
+
+    #loginform{
+        position: absolute;
+        top:60%;
+    }
+    #signInForms{
+        margin-left: 93%;
+        width: 120%;
+    }
+    #notAmember{
+        position: absolute;
+        margin-left: 37%;
+    }
+    #not{
+        position: absolute;
+        margin-top:50%;
+        margin-left: 35%;
+    }
+
+    #nott{
+        position: absolute;
+        margin-top:60%;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 612px ){
+    #user{
+        position:absolute;
+        left:38%;
+    }
+    #headlineStartPage{
+        top:50px;
+    }
+    #loginbtn{
+        color:#6AA4F3;
+    }
+    #signupbtn{
+        color:#6AA4F3;
+    }
+    #mainText{
+        color: #1E90FF;
+        font-family: Georgia, serif;
+        font-size: 20px;
+        position: relative;
+        top:80px;
+        text-align: justify;
+    }
+    #formForSignUp{
+        margin-left: 0%;
+        width:90%;
+    }
+    #signup_btn{
+        position:absolute;
+        top:100%;
+        left:35%;
+    }
+    #member{
+        position:absolute;
+        top:95%;
+        margin-left: 23%;
+    }
+    #buttonLogin{
+        position: absolute;
+        top:100%;
+        margin-left: 38%;
+        top:60%;
+    }
+    #buttonLog{
+        top:60%;
+
+    }
+
+    #loginform{
+        position: absolute;
+        top:60%;
+    }
+
+    #signInForms{
+        margin-left: 65%;
+        width: 100%;
+    }
+    #notAmember{
+        position: absolute;
+        margin-left: 16%;
+    }
+    #not{
+        position: absolute;
+        margin-top:50%;
+    }
+
+    #nott{
+        position: absolute;
+        margin-top:60%;
+        margin-left: 20%;
+        width: 100%;
+    }
+    #ajaxContent{
+        color:red;
+        position: absolute;
+        margin-top:53%;
+        margin-left: -5%;
+    }
+}
+
+@media screen and (max-width: 612px ){
+    #user{
+        position:absolute;
+        left:38%;
+    }
+    #headlineStartPage{
+        top:50px;
+    }
+    #loginbtn{
+        color:#6AA4F3;
+    }
+    #signupbtn{
+        color:#6AA4F3;
+    }
+    #mainText{
+        color: #1E90FF;
+        font-family: Georgia, serif;
+        font-size: 20px;
+        position: relative;
+        top:80px;
+        text-align: justify;
+    }
+    #formForSignUp{
+        margin-left: 0%;
+        width:90%;
+    }
+    #signup_btn{
+        position:absolute;
+        top:100%;
+        left:35%;
+    }
+    #member{
+        position:absolute;
+        top:95%;
+        margin-left: 23%;
+    }
+    #buttonLogin{
+        position: absolute;
+        top:100%;
+        margin-left: 38%;
+        top:60%;
+    }
+    #buttonLog{
+        top:60%;
+
+    }
+
+    #loginform{
+        position: absolute;
+        top:60%;
+    }
+
+    #signInForms{
+        margin-left: 65%;
+        width: 100%;
+    }
+    #notAmember{
+        position: absolute;
+        margin-left: 16%;
+    }
+    #not{
+        position: absolute;
+        margin-top:50%;
+    }
+
+    #nott{
+        position: absolute;
+        margin-top:60%;
+        margin-left: 20%;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 420px ){
+    #user{
+        position:absolute;
+        left:30%;
+    }
+    #headlineStartPage{
+        top:50px;
+    }
+    #loginbtn{
+        color:#6AA4F3;
+    }
+    #signupbtn{
+        color:#6AA4F3;
+    }
+    #mainText{
+        color: #1E90FF;
+        font-family: Georgia, serif;
+        font-size: 20px;
+        position: relative;
+        top:80px;
+        text-align: justify;
+    }
+    #formForSignUp{
+        margin-left: 0%;
+        width:90%;
+    }
+    #signup_btn{
+        position:absolute;
+        top:100%;
+        left:33%;
+    }
+    #member{
+        position:absolute;
+        top:128%;
+        margin-left: 20%;
+    }
+    #buttonLogin{
+        position: absolute;
+        top:100%;
+        margin-left: 45%;
+        top:60%;
+    }
+    #buttonLog{
+        top:60%;
+
+    }
+    #notAmember{
+        position: absolute;
+        margin-top: 43%;
+        width:100%;
+    }
+    #not{
+        position: absolute;
+        margin-top:80%;
+        margin-left:20%;
+    }
+
+    #nott{
+        margin-left: 3%;
+    }
+
+    #signInForms{
+        margin-left: 20%;
+        width: 100%;
+    }
+
+    #loginform{
+        position: absolute;
+        top:35%;
+    }
+    #ajaxContent{
+        color:red;
+        position: absolute;
+        margin-top:95%;
+        margin-left: 15%;
+    }
 }

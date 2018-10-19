@@ -65,19 +65,19 @@
     <div class="row content">
         <div class="col-sm-3" id="motivation">
             <img id="images" src="exercise.jpeg" alt="exercise" >
-            <div class="centered"> <a onclick="motivationPages('exercise');">Exercise</a></div>
+            <div class="centered"> <a onclick="motivationPages('exercise');" style="font-size: 25px;">Exercise</a></div>
         </div>
         <div class="col-sm-3" id="motivation">
             <img id="images" src="support.jpg" alt="support" >
-            <div class="centered"> <a onclick="motivationPages('support');">Emotional support</a></div>
+            <div class="centered"> <a onclick="motivationPages('support');" style="font-size: 25px;">Emotional support</a></div>
         </div>
         <div class="col-sm-3" id="motivation">
             <img id="images" src="bono.jpg" alt="bono" >
-            <div class="centered"> <a onclick="motivationPages('people');">Famous people <br> with asthma</a></div>
+            <div class="centered"> <a onclick="motivationPages('people');" style="font-size: 25px;">Famous people <br> with asthma</a></div>
         </div>
         <div class="col-sm-3" id="motivation">
             <img id="images" src="book.jpg" alt="book">
-            <div class="centered"> <a onclick="motivationPages('quotes');">Quotes</a></div>
+            <div class="centered"> <a onclick="motivationPages('quotes');" style="font-size: 25px;">Quotes</a></div>
         </div>
     </div>
 </div>

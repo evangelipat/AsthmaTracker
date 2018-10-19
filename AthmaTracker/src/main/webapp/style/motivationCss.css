@@ -25,10 +25,6 @@ and open the template in the editor.
     transform: translate(-50%, -50%);
 
 }
-a{
-    font-size: 25px;
-    font-weight: bold;
-}
 #images-central{
     padding-top: 10px;
     width:1200px;
