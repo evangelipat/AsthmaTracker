@@ -42,7 +42,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">Home</a></li>
                         <li><a onclick="profileRequest();">Profile</a></li>
-                        <li><a href="#">Logbook</a></li>
+                        <li><a onclick="logbook();">Logbook</a></li>
                         <li><a onclick="motivationPages('motivation');">Motivation</a></li>
                         <li><a onclick="aboutAsthmaPages('aboutAsthma');">About Asthma</a></li>
                     </ul>

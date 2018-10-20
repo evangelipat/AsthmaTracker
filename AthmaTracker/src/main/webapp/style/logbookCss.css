@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 20, 2018, 12:45:49 PM
+    Author     : eveli
+*/
+
+#colors{
+    color:#7161EF;
+}
+#logbook {
+    border: 1px solid #D8D8D8;
+    margin-top: 22px;
+    margin-left: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+#buttonsLogbook{
+    margin-top:5%;
+}
+#attack{
+    margin-left: 27px;
+    width:200px;
+}
+#duration{
+    width:98px;
+}
+
+.checkbox{
+    margin-left: 5px;
+}
+#flow{
+    margin-left:51px;
+}
+#value{
+    width:177px;
+}
+#submit{
+    margin-left: 42%;
+}

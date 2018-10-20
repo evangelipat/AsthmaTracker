@@ -141,7 +141,7 @@ function profileRequest() {
 
 }
 var count = 0;
-
+///////////////////////////profile//////////////////////////////
 function addMedicationRow() {
     count++;
     var container = document.getElementById("baseMedication");
@@ -247,7 +247,7 @@ function deleteMedication(name, dosage, id) {
 
 
 }
-
+////////////////////////////////////////////////////////////////////////
 
 function logout() {
 
@@ -268,3 +268,4 @@ function logout() {
 
     xhr.send();
 }
+
