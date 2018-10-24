@@ -4,6 +4,10 @@
     Author     : eveli
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="com.mycompany.athmatracker.model.Logbook"%>
+<%@page import="com.mycompany.athmatracker.db.LogbookDB"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.mycompany.athmatracker.db.MedicationDB"%>
@@ -12,6 +16,11 @@
 <%@page import="com.mycompany.athmatracker.model.User"%>
 <%@page import="com.mycompany.athmatracker.db.UserDB"%>
 <% User user = UserDB.getUser(request.getSession().getAttribute("email").toString());%>
+<script type="text/javascript">
+       function code() {
+           alert('ok');
+       }
+</script>
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -51,7 +60,7 @@
 </nav>
 <div class="container-fluid text-left">
 
-    <div class="col-sm-7" id="logbook">     <%----%>
+    <div class="col-sm-6" id="logbook">     <%----%>
         <div class="col-sm-12">
             <div class="col-sm-6">
                 <h4 id="colors">Log an Attack</h4>
@@ -78,51 +87,85 @@
                         </div>
                         <br>
                             </div>
-                            <div class="col-sm-6">
-                                <h4 id="colors">Peak Flow</h4>
-                                <div class="form-inline">
-                                    <label>Date:</label>
-                                    <input type="date" class="form-control" id="flow" name="peakflow" min="2018-01-01">
-                                </div>
-                                <br>
-                                    <div class="form-inline">
-                                        <label>Value (l/min):</label>
-                                        <input type="text" class="form-control" id="value" name="value">
-                                        <p></p>
-                                    </div>
-                            </div>
+
         </div>
         <div class="col-sm-12">
-            <h4 id="colors"> Symptoms</h4>
-            <div class="checkbox">
-                <label><input type="checkbox" id="wheeze">Wheeze</label>
+            <div class="col-sm-6">
+                <h4 id="colors"> Symptoms</h4>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="wheeze">Wheeze</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="cough">Cough</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="phlegm">Phlegm/mucus</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="tightness">Chest tightness</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="breathing">Difficulty breathing</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="wakeup">Symptoms wake me up at night or early morning</label>
+                </div>
             </div>
-            <div class="checkbox">
-                <label><input type="checkbox" id="cough">Cough</label>
+            <div class="col-sm-6">
+                <h4 id="colors">Peak Flow</h4>
+                <div class="form-inline">
+                    <label>Date:</label>
+                    <input type="date" class="form-control" id="flow" name="peakflow" min="2018-01-01">
+                </div>
+                <br>
+                    <div class="form-inline">
+                        <label>Value (l/min):</label>
+                        <input type="text" class="form-control" id="value" name="value">
+                            <p></p>
+                    </div>
             </div>
-            <div class="checkbox">
-                <label><input type="checkbox" id="phlegm">Phlegm/mucus</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" id="tightness">Chest tightness</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" id="breathing">Difficulty breathing</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox" id="wakeup">Symptoms wake me up at night or early morning</label>
-            </div> 
         </div> <%--col-12--%>
         <div class="col-sm-12">
             <h4 id="colors">Notes</h4>
             <textarea class="form-control" rows="5" id="notes"></textarea><br>
         </div>
         <button type="submit" onclick="logSubmit();" class="btn btn-default btn-lg" id="submit">Submit</button>
-        <br><br>
+        <br>
+            <div class="col-sm-12"  id="saveMessage"></div>
+            <br>
                 </div> <%--sm-7--%>
 
-                            <div class="col-sm-4" id="logbook">  <%--calendar--%>
+                <div class="col-sm-5" id="logbook">  <%--calendar--%>
 
-                            </div><%--sm-4--%>
+                    <div class="col-sm-12"> <%--notes--%>
+                        <%
+    List<Logbook> logbooks = new ArrayList<>();
+    logbooks = LogbookDB.getLogbook(request.getSession().getAttribute("email").toString());
+        out.println("<div class=\"col-sm-12\" \"table-editable\">" + "<div class=\"scrollable\">" + " <table class=\"table\">" + " <thead>" + "<tr>");
+        out.println(" <th>Date</th>" + "<th>Notes</th>" + "<th></th>");
+
+    for (int i = 0; i < logbooks.size(); i++) {
+            Logbook logbook = logbooks.get(i);
+
+            if (!logbook.getNotes().isEmpty()) {
+                out.println("<tr>" + "<td id=\"date\">" + logbook.getCreated() + "</td>");
+                //out.println("<td id=\"notes\">" + "<input type=\"text\" class=\"editNotes\" id=\"editNotes\" name=\"editNotes\" value=\"" + logbook.getNotes() + "\">" + "</td>");
+                  out.println("<td contenteditable=\"true\" id=\"notes" + logbook.getId() + "\">" + logbook.getNotes() + "</td>");
+
+                out.println("<td id=\"btn\">" + "<button class=\"btn\" id=\"logbookEdit\" onclick=\"saveChanges(" + "'" + logbook.getId() + "'" + ");\">" + "<i class=\"fa fa-save\">" + "</i></button>");
+                out.println("<td id=\"btn\">" + "<button class=\"btn\" id=\"logbookEdit\" onclick=\"deleteNote(" + "'" + logbook.getId() + "'" + ");\">" + "<i class=\"fa fa-trash\">" + "</i></button>" + "</tr>");
+
+            }
+
+    }
+
+out.println("</tbody>" + "</table>" + "</div>" + "</div>");
+                                            %>
+
+
+                    </div>
+                    <div class="col-sm-12"  id="browseMessage"></div>
+                </div><%--sm-4--%>
 
 </div><%--sm-12--%>
+
