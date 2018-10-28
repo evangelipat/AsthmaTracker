@@ -77,7 +77,7 @@ public class UserDB {
                 user.setFirstname(rs.getString("firstname"));
                 user.setLastname(rs.getString("lastname"));
                 user.setBirth_date(rs.getString("birth_date"));
-                // user.setHeight(rs.getDouble("height"));
+                user.setCity(rs.getString("city"));
                 user.setGender(rs.getString("gender"));
             }
 
@@ -103,13 +103,14 @@ public class UserDB {
 
             query.append("INSERT INTO ")
                     .append(" users (EMAIL, PASSWORD, FIRSTNAME, "
-                            + "LASTNAME, BIRTH_DATE, GENDER)")
+                            + "LASTNAME, BIRTH_DATE, CITY, GENDER)")
                     .append(" VALUES (")
                     .append("'").append(user.getEmail()).append("',")
                     .append("'").append(user.getPassword()).append("',")
                     .append("'").append(user.getFirstname()).append("',")
                     .append("'").append(user.getLastname()).append("',")
                     .append("'").append(user.getBirth_date()).append("',")
+                    .append("'").append(user.getCity()).append("',")
                     .append("'").append(user.getGender()).append("');");
 
             stm.executeUpdate(query.toString());

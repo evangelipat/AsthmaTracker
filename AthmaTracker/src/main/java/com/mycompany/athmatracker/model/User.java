@@ -22,7 +22,7 @@ public class User {
     private String lastname;
     private String birth_date;
     private String gender;
-    private double height;
+    private String city;
 
     public User() {
         this.email = "";
@@ -31,7 +31,7 @@ public class User {
         this.lastname = "";
         this.birth_date = "";
         this.gender = "";
-        this.height = 0;
+        this.city = "";
     }
 
     public User(String email, String password, String firstname, String lastname, String birthDate, String gender) {
@@ -43,14 +43,14 @@ public class User {
         this.gender = gender;
     }
 
-    public User(String email, String password, String firstname, String lastname, String birthDate, double height, String gender) {
+    public User(String email, String password, String firstname, String lastname, String birthDate, String city, String gender) {
         this.email = email;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
         this.birth_date = birthDate;
         this.gender = gender;
-        this.height = height;
+        this.city = city;
     }
 
     public String getEmail() {
@@ -93,12 +93,12 @@ public class User {
         this.birth_date = birth_date;
     }
 
-    public double getHeight() {
-        return height;
+    public String getCity() {
+        return city;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getGender() {

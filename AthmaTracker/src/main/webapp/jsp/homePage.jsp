@@ -1,6 +1,12 @@
+<%@page import="java.util.Date"%>
+<%@page import="net.aksingh.owmjapis.core.OWMPro"%>
+<%@page import="net.aksingh.owmjapis.model.DailyWeatherForecast"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.mycompany.athmatracker.model.User"%>
 <%@page import="com.mycompany.athmatracker.db.UserDB"%>
+<%@page import= "net.aksingh.owmjapis.core.OWM"%>
+<%@page import="net.aksingh.owmjapis.api.APIException"%>
+<%@page import="net.aksingh.owmjapis.model.CurrentWeather"%>
 <% User user = UserDB.getUser(request.getSession().getAttribute("email").toString());%>
 <nav class="navbar">
     <div class="container-fluid">
@@ -41,11 +47,109 @@
 </nav>
 <div class="container-fluid text-center">
     <div class="row content">
-        <div class="col-sm-2 ">
+        <div class="col-sm-1 ">
         </div>
         <div class="col-sm-9 text-left">
-            <h1>Welcome</h1>
+            <h2>Welcome to Asthma Tracker</h2>
 
+            <div class="col-sm-8">
+                <div class="form-inline">
+                    <label for="City">Search weather for another city:</label>
+                    <input type="text" class="form-control" id="reqCity" >
+                        <input type="button" class="btn btn-default" value="Search" onclick="findWeather();">
+                            </div>
+            </div>
         </div>
-                        </div>
-                        </div>
+        <div class="col-sm-12" id="weather">
+            <br>
+                <%
+                                        double temp = 0;
+   try {
+                                            OWM owm = new OWM("943ed901c118ec454eaac8992da7b77b");
+                                            CurrentWeather cwd = owm.currentWeatherByCityName(user.getCity());
+
+                                            // checking data retrieval was successful or not
+                                                if (cwd.hasRespCode() && cwd.getRespCode() == 200) {
+
+                                                /*      RAIN    ***/
+                                                    if (cwd.hasRainData()) {
+
+
+                                    %>
+                                    <img id="weatherIMG" src="rain.jpeg" alt="rain" >
+                                        <div class="weatherInfo">
+                                            <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
+                                                <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
+                                                        temp = cwd.getMainData().getTemp();
+                                                        temp = temp - 273.15;
+                                                        /*Kelvin to Celcius*/
+                                                        out.println("<h3 id=\"city-temp\">" + "Temperature:   " + temp + " °C" + "</h3>");
+                                                    }
+                                                    out.println("<h3 id=\"city-temp\">" + "Rain:   " + cwd.getRainData().getPrecipVol3h() + " mm" + "</h3>");
+                                                    if (cwd.getMainData().hasHumidity()) {
+                                                        out.println("<h3 id=\"city-temp\">" + "Humidity:   " + cwd.getMainData().getHumidity() + " %" + "</h3>");
+                                                    }
+                                                    out.println("<h3 id=\"city-temp\">" + "Wind:   " + cwd.getWindData().getSpeed() + " m/s" + "</h3>");
+                                                    out.println("<h3 id=\"city-temp\">" + "Clouds:   " + cwd.getCloudData().getCloud() + " %" + "</h3>");
+
+
+                                                %>
+                                        </div>
+                                                <%  } else if (cwd.hasSnowData()) {
+                                                    /**
+                                                     * ******SNOW **********
+                                                     */
+                                                %>
+                                                <img id="weatherIMG" src="snow.jpeg" alt="snow" >
+                                                    <div class="snow">
+                                                        <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
+                                                            <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
+                                                            temp = cwd.getMainData().getTemp();
+                                                            temp = temp - 273.15;
+                                                            /*Kelvin to Celcius*/
+                                                            out.println("<h3 id=\"city-temp\">" + "Temperature:   " + temp + " °C" + "</h3>");
+                                                        }
+                                                        out.println("<h3 id=\"city-temp\">" + "Snow:   " + cwd.getSnowData().getSnowVol3h() + " mm" + "</h3>");
+
+                                                        out.println("<h3 id=\"city-temp\">" + "Wind:   " + cwd.getWindData().getSpeed() + " m/s" + "</h3>");
+                                                            out.println("<h3 id=\"city-temp\">" + "Clouds:   " + cwd.getCloudData().getCloud() + " %" + "</h3>");
+
+
+                                                    %>
+                                            </div>
+                                            %><% } else {
+                                                /*SUNNY WEATHER*/
+                                            %>
+                                            <img id="weatherIMG" src="sun.jpeg" alt="sun" >
+                                                <div class="weatherInfo">
+                                                    <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
+                                                        <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
+                                                                temp = cwd.getMainData().getTemp();
+                                                                temp = temp - 273.15;
+                                                                /*Kelvin to Celcius*/
+                                                                out.println("<h3 id=\"city-temp\">" + "Temperature:   " + temp + " °C" + "</h3>");
+                                                            }
+                                                            if (cwd.getMainData().hasHumidity()) {
+                                                                out.println("<h3 id=\"city-temp\">" + "Humidity:   " + cwd.getMainData().getHumidity() + " %" + "</h3>");
+                                                            }
+                                                            out.println("<h3 id=\"city-temp\">" + "Wind:   " + cwd.getWindData().getSpeed() + " m/s" + "</h3>");
+                                                            out.println("<h3 id=\"city-temp\">" + "Clouds:   " + cwd.getCloudData().getCloud() + " %" + "</h3>");
+
+
+                                                        %>  </div> <%  }
+
+                                                } else {
+                                                %>
+                                                <img id="weatherIMG" src="no.jpeg" alt="no" >
+                                                    <div class="weatherInfo">
+                                                        <% out.println("<h2 id=\"city-temp\">" + "There are no weather data, check connection" + "</h2>"); %><br>
+                                                            <%
+                                                 }
+} catch (Exception ex) {
+System.out.println("Exception: " + ex);
+}
+                                                            %>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>

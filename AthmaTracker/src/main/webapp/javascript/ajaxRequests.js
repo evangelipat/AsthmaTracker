@@ -56,6 +56,7 @@ function sendAjaxPost() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     var bday = document.getElementById('bday').value;
+    var city = document.getElementById('city').value;
     var gender = val_Gender();
 
     var xhr = new XMLHttpRequest();
@@ -72,7 +73,7 @@ function sendAjaxPost() {
             'application/x-www-form-urlencoded');
 
     xhr.send('firstname=' + firstname + '&lastname=' + lastname + '&password=' + password
-            + '&email=' + email + '&birth_date=' + bday + '&gender=' + gender);
+            + '&email=' + email + '&birth_date=' + bday + '&city=' + city + '&gender=' + gender);
 
 }
 
@@ -269,3 +270,25 @@ function logout() {
     xhr.send();
 }
 
+function findWeather() {
+    var city = document.getElementById("reqCity").value;
+
+
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById('weather')
+                    .innerHTML = xhr.responseText;
+        } else if (xhr.status !== 200) {
+            document.getElementById('weather')
+                    .innerHTML = xhr.responseText;
+            alert('Request failed. Returned status of ' + xhr.status);
+        }
+    };
+    xhr.open('POST', 'WeatherServlet');
+    xhr.setRequestHeader('Content-type',
+            'application/x-www-form-urlencoded');
+
+    xhr.send('city=' + city);
+}

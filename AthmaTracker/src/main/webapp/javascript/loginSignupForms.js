@@ -37,6 +37,8 @@ function showRegistrationForm() {
          <h5 id="password_message"></h5>\n\
          <label>Birthday:</label>\n\
          <input type="date" class="form-control" id="bday" name="bday" min="1940-01-01" required>\n\
+         <label for="name">City:</label>\n\
+         <input type="text" class="form-control" id="city" placeholder="City" name="city" >\n\
          <h5>Gender:</h5><label for="male">Male</label>\n\
          <input type="radio" name="gender" id="male" value="male">&emsp;\n\
          <label for="female">Female</label>\n\

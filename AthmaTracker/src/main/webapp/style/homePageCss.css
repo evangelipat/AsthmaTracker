@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 27, 2018, 11:34:31 PM
+    Author     : eveli
+*/
+
+#weather{
+    height: 500px;
+}
+#weatherIMG{
+    width:1450px;
+    height: 500px;
+    -webkit-filter: blur(2px); 
+    filter: blur(2px);
+}
+.weatherInfo{
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    color:white;
+    text-align: left;
+}
+.snow{
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    color:black;
+    text-align: left;
+}
+#city-temp{
+    font-weight: 700;
+}

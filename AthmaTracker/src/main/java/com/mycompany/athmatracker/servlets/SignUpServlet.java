@@ -46,11 +46,12 @@ public class SignUpServlet extends HttpServlet {
             String password = request.getParameter("password");
             String email = request.getParameter("email");
             String birth_date = request.getParameter("birth_date");
+            String city = request.getParameter("city");
             String gender = request.getParameter("gender");
             String text = "";
             text = checkFormat(email, password, firstname, lastname);
 
-            boolean CheckIfEmpty = checkEmpty(email, password, firstname, lastname, birth_date);
+            boolean CheckIfEmpty = checkEmpty(email, password, firstname, lastname, birth_date, city);
 
             if (CheckIfEmpty) {
 
@@ -65,7 +66,7 @@ public class SignUpServlet extends HttpServlet {
 
             } else {
 
-                User user = new User(email, password, firstname, lastname, birth_date, gender);
+                User user = new User(email, password, firstname, lastname, birth_date, city, gender);
                 UserDB.addUser(user);
                 session.setAttribute("email", email);      //session
                 response.setStatus(200);
@@ -126,12 +127,13 @@ public class SignUpServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public boolean checkEmpty(String email, String password, String firstname, String lastname, String birth_date) {
+    public boolean checkEmpty(String email, String password, String firstname, String lastname, String birth_date, String city) {
         if ((email == null || email.trim().isEmpty())
                 || (password == null || password.trim().isEmpty())
                 || (firstname == null || firstname.trim().isEmpty())
                 || (lastname == null || lastname.trim().isEmpty())
-                || (birth_date == null || birth_date.trim().isEmpty())) {
+                || (birth_date == null || birth_date.trim().isEmpty())
+                || (city == null || city.trim().isEmpty())) {
             return true;
         } else {
             return false;
@@ -145,7 +147,7 @@ public class SignUpServlet extends HttpServlet {
         if (!email.matches("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$")) {
             text = text + "Email ";
         }
-        if (!password.matches("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+])[A-Za-z\\d!@#$%^&*()_+]{3,10}")) {
+        if (!password.matches("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+])[A-Za-z\\d!@#$%^&*()_+]{3,25}")) {
             text = text + "Password ";
         }
         if (!firstname.matches("[A-Za-z]{0,25}$")) {

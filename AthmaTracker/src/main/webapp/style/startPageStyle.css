@@ -72,7 +72,7 @@ and open the template in the editor.
 }
 #member{
     position:absolute;
-    top:95%;
+    top:100%;
     margin-left: 45%;
 }
 #notAmember{

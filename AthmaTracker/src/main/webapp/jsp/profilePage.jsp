@@ -78,6 +78,12 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="control-label col-sm-2" for="gender">City:</label>
+                    <div class="col-sm-10">
+                        <p><%out.println(user.getCity());%></p>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="control-label col-sm-2" for="gender">Gender:</label>
                     <div class="col-sm-10">
                         <p><%out.println(user.getGender());%></p>
