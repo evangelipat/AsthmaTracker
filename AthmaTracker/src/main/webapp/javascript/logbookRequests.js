@@ -161,3 +161,28 @@ function deleteNote(id) {
 
 
 }
+
+function exportData() {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById('browseMessage')
+                    .innerHTML = xhr.responseText;
+            document.getElementById('browseMessage').style.color = "green";
+
+
+        } else if (xhr.status !== 200) {
+            document.getElementById('browseMessage')
+                    .innerHTML = xhr.responseText;
+            alert('Request failed. Returned status of ' + xhr.status);
+        }
+    };
+    xhr.open('POST', 'ExportServlet');
+    xhr.setRequestHeader('Content-type',
+            'application/x-www-form-urlencoded');
+
+    xhr.send();
+
+
+}

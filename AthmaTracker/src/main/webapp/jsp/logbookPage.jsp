@@ -16,11 +16,7 @@
 <%@page import="com.mycompany.athmatracker.model.User"%>
 <%@page import="com.mycompany.athmatracker.db.UserDB"%>
 <% User user = UserDB.getUser(request.getSession().getAttribute("email").toString());%>
-<script type="text/javascript">
-       function code() {
-           alert('ok');
-       }
-</script>
+
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -135,37 +131,42 @@
             <br>
                 </div> <%--sm-7--%>
 
-                <div class="col-sm-5" id="logbook">  <%--calendar--%>
+                                    <div class="col-sm-5" id="logbook">  <%--calendar--%>
 
-                    <div class="col-sm-12"> <%--notes--%>
-                        <%
-    List<Logbook> logbooks = new ArrayList<>();
-    logbooks = LogbookDB.getLogbook(request.getSession().getAttribute("email").toString());
-        out.println("<div class=\"col-sm-12\" \"table-editable\">" + "<div class=\"scrollable\">" + " <table class=\"table\">" + " <thead>" + "<tr>");
-        out.println(" <th>Date</th>" + "<th>Notes</th>" + "<th></th>");
+                                        <div class="col-sm-12"> <%--notes--%>
+                                            <%
+                                                List<Logbook> logbooks = new ArrayList<>();
+                                                logbooks = LogbookDB.getLogbook(request.getSession().getAttribute("email").toString());
+                                                out.println("<div class=\"col-sm-12\" \"table-editable\">" + "<div class=\"scrollable\">" + " <table class=\"table\">" + " <thead>" + "<tr>");
+                                                out.println(" <th>Date</th>" + "<th>Notes</th>" + "<th></th>");
 
-    for (int i = 0; i < logbooks.size(); i++) {
-            Logbook logbook = logbooks.get(i);
+                                                for (int i = 0; i < logbooks.size(); i++) {
+                                                    Logbook logbook = logbooks.get(i);
 
-            if (!logbook.getNotes().isEmpty()) {
-                out.println("<tr>" + "<td id=\"date\">" + logbook.getCreated() + "</td>");
-                //out.println("<td id=\"notes\">" + "<input type=\"text\" class=\"editNotes\" id=\"editNotes\" name=\"editNotes\" value=\"" + logbook.getNotes() + "\">" + "</td>");
-                  out.println("<td contenteditable=\"true\" id=\"notes" + logbook.getId() + "\">" + logbook.getNotes() + "</td>");
+                                                    if (!logbook.getNotes().isEmpty()) {
+                                                        out.println("<tr>" + "<td id=\"date\">" + logbook.getCreated() + "</td>");
+                                                        //out.println("<td id=\"notes\">" + "<input type=\"text\" class=\"editNotes\" id=\"editNotes\" name=\"editNotes\" value=\"" + logbook.getNotes() + "\">" + "</td>");
+                                                        out.println("<td contenteditable=\"true\" id=\"notes" + logbook.getId() + "\">" + logbook.getNotes() + "</td>");
 
-                out.println("<td id=\"btn\">" + "<button class=\"btn\" id=\"logbookEdit\" onclick=\"saveChanges(" + "'" + logbook.getId() + "'" + ");\">" + "<i class=\"fa fa-save\">" + "</i></button>");
-                out.println("<td id=\"btn\">" + "<button class=\"btn\" id=\"logbookEdit\" onclick=\"deleteNote(" + "'" + logbook.getId() + "'" + ");\">" + "<i class=\"fa fa-trash\">" + "</i></button>" + "</tr>");
+                                                        out.println("<td id=\"btn\">" + "<button class=\"btn\" id=\"logbookEdit\" onclick=\"saveChanges(" + "'" + logbook.getId() + "'" + ");\">" + "<i class=\"fa fa-save\">" + "</i></button>");
+                                                        out.println("<td id=\"btn\">" + "<button class=\"btn\" id=\"logbookEdit\" onclick=\"deleteNote(" + "'" + logbook.getId() + "'" + ");\">" + "<i class=\"fa fa-trash\">" + "</i></button>" + "</tr>");
 
-            }
+                                                    }
 
-    }
+                                                }
 
-out.println("</tbody>" + "</table>" + "</div>" + "</div>");
+    out.println("</tbody>" + "</table>" + "</div>" + "</div>");
                                             %>
 
 
-                    </div>
-                    <div class="col-sm-12"  id="browseMessage"></div>
-                </div><%--sm-4--%>
+                                        </div>
+                                        <div class="col-sm-12"  id="browseMessage"></div>
+                                        <div class="col-sm-12"  id="exportdata">
+                                            <button class="btn btn-link" id="exportBtn" onclick="exportData();">Export data as txt  <i class="fa fa-share-square-o"></i></button>
+                                            <br>
+                                        </div>
+
+                                    </div><%--calendar--%>
 
 </div><%--sm-12--%>
 
