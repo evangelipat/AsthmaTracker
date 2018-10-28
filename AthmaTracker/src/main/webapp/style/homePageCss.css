@@ -34,3 +34,44 @@ and open the template in the editor.
 #city-temp{
     font-weight: 700;
 }
+
+@media screen and (max-width: 767px) {
+    #weather{
+        height: 500px;
+        padding-left: 0px;
+
+    }
+    #weatherIMG{
+        width:700px;
+        height: 500px;
+        -webkit-filter: blur(2px);
+        filter: blur(2px);
+    }
+    #city-temp{
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+}
+
+@media screen and (max-width: 430px) {
+
+    .weatherInfo{
+        position: absolute;
+        top: 15%;
+        left: 12%;
+        color:black;
+        text-align: left;
+    }
+    #weather{
+        height: 400px;
+        padding-left: 0px;
+    }
+    #weatherIMG{
+        width:430px;
+        height: 400px;
+        -webkit-filter: blur(2px);
+        filter: blur(2px);
+    }
+
+}

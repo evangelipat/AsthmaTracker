@@ -62,9 +62,9 @@
         </div>
         <div class="col-sm-12" id="weather">
             <br>
-                <%
+                <%                      double humidity = 0;
                                         double temp = 0;
-   try {
+                                        try {
                                             OWM owm = new OWM("943ed901c118ec454eaac8992da7b77b");
                                             CurrentWeather cwd = owm.currentWeatherByCityName(user.getCity());
 
@@ -77,7 +77,7 @@
 
                                     %>
                                     <img id="weatherIMG" src="rain.jpeg" alt="rain" >
-                                        <div class="weatherInfo">
+                                        <div class=" col-sm-5 weatherInfo">
                                             <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
                                                 <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
                                                         temp = cwd.getMainData().getTemp();
@@ -94,16 +94,19 @@
 
 
                                                 %>
+                                        </div>   <div class="col-sm-4 predictions">
+                                            <h3>Be careful, the rain is not the ideal weather for workout</h3>
+                                            <h3>Better, take a break!</h3>
                                         </div>
-                                                <%  } else if (cwd.hasSnowData()) {
-                                                    /**
+                                        <%  } else if (cwd.hasSnowData()) {
+                                                /**
                                                      * ******SNOW **********
                                                      */
-                                                %>
-                                                <img id="weatherIMG" src="snow.jpeg" alt="snow" >
-                                                    <div class="snow">
-                                                        <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
-                                                            <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
+                                        %>
+                                        <img id="weatherIMG" src="snow.jpeg" alt="snow" >
+                                            <div class="col-sm-5 snow">
+                                                <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
+                                                    <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
                                                             temp = cwd.getMainData().getTemp();
                                                             temp = temp - 273.15;
                                                             /*Kelvin to Celcius*/
@@ -112,16 +115,19 @@
                                                         out.println("<h3 id=\"city-temp\">" + "Snow:   " + cwd.getSnowData().getSnowVol3h() + " mm" + "</h3>");
 
                                                         out.println("<h3 id=\"city-temp\">" + "Wind:   " + cwd.getWindData().getSpeed() + " m/s" + "</h3>");
-                                                            out.println("<h3 id=\"city-temp\">" + "Clouds:   " + cwd.getCloudData().getCloud() + " %" + "</h3>");
+                                                        out.println("<h3 id=\"city-temp\">" + "Clouds:   " + cwd.getCloudData().getCloud() + " %" + "</h3>");
 
 
                                                     %>
+                                            </div>  <div class="col-sm-4 predictions">
+                                                <h3>Be careful, the cold air may trigger an asthma attack</h3>
+                                                <h3>Take your meds with you!</h3>
                                             </div>
                                             %><% } else {
                                                 /*SUNNY WEATHER*/
                                             %>
                                             <img id="weatherIMG" src="sun.jpeg" alt="sun" >
-                                                <div class="weatherInfo">
+                                                <div class="col-sm-5 weatherInfo">
                                                     <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
                                                         <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
                                                                 temp = cwd.getMainData().getTemp();
@@ -131,12 +137,30 @@
                                                             }
                                                             if (cwd.getMainData().hasHumidity()) {
                                                                 out.println("<h3 id=\"city-temp\">" + "Humidity:   " + cwd.getMainData().getHumidity() + " %" + "</h3>");
+                                                                humidity = cwd.getMainData().getHumidity();
                                                             }
                                                             out.println("<h3 id=\"city-temp\">" + "Wind:   " + cwd.getWindData().getSpeed() + " m/s" + "</h3>");
                                                             out.println("<h3 id=\"city-temp\">" + "Clouds:   " + cwd.getCloudData().getCloud() + " %" + "</h3>");
 
 
-                                                        %>  </div> <%  }
+                                                        %>  </div>   <div class="col-sm-4 predictions">
+                                                            <% if (temp > 5 && temp < 35) {
+                                                            if (humidity > 30 && humidity < 60) {
+                                                                out.println("<h3>It's a perfect day for exercise</h3>");
+                                                                out.println("<h3>What about a walk?</h3>");
+                                                            } else {
+                                                                    out.println("<h3>Quite moist out there, better workout at home</h3>");
+
+                                                                }
+
+
+                                                        } else if (temp < 5) {
+                                                            out.println("<h3>It's cold outside</h3>");
+                                                            out.println("<h3>It's better stay home and enjoy a hot chocolate!</h3>");
+
+    }
+                                                    %>
+                                                </div> <%  }
 
                                                 } else {
                                                 %>
@@ -144,10 +168,10 @@
                                                     <div class="weatherInfo">
                                                         <% out.println("<h2 id=\"city-temp\">" + "There are no weather data, check connection" + "</h2>"); %><br>
                                                             <%
-                                                 }
-} catch (Exception ex) {
-System.out.println("Exception: " + ex);
-}
+                                                                    }
+    } catch (Exception ex) {
+            System.out.println("Exception: " + ex);
+        }
                                                             %>
                                                     </div>
                                                     </div>

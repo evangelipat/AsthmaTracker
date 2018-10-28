@@ -58,3 +58,29 @@ and open the template in the editor.
     height: 300px;
     overflow: auto;
 }
+
+@media screen and (max-width: 767px) {
+    #attack{
+        margin-left: 0px;
+        width:200px;
+    }
+    #flow{
+        margin-left:0px;
+    }
+    #submit{
+        margin-left: 41%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    #attack{
+        margin-left: 0px;
+        width:200px;
+    }
+    #flow{
+        margin-left:0px;
+    }
+    #submit{
+        margin-left: 33%;
+    }
+}
