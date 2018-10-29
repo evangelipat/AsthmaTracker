@@ -94,9 +94,9 @@
 
 
                                                 %>
-                                        </div>   <div class="col-sm-4 predictions">
-                                            <h3>Be careful, the rain is not the ideal weather for workout</h3>
-                                            <h3>Better, take a break!</h3>
+                                        </div>   <div class="col-sm-5" id="predictions">
+                                            <h3 id="prediction-font">&ldquo;Be careful, the rain is not the ideal weather for workout</h3>
+                                            <h3 id="prediction-font">Better, take a break!  &rdquo;</h3>
                                         </div>
                                         <%  } else if (cwd.hasSnowData()) {
                                                 /**
@@ -119,14 +119,14 @@
 
 
                                                     %>
-                                            </div>  <div class="col-sm-4 predictions">
-                                                <h3>Be careful, the cold air may trigger an asthma attack</h3>
-                                                <h3>Take your meds with you!</h3>
+                                            </div>  <div class="col-sm-5" id="predictions">
+                                                <h3 id="prediction-font">&ldquo;Be careful, the cold air may trigger an asthma attack</h3>
+                                                <h3 id="prediction-font">Take your meds with you!  &rdquo;</h3>
                                             </div>
                                             %><% } else {
                                                 /*SUNNY WEATHER*/
                                             %>
-                                            <img id="weatherIMG" src="sun.jpeg" alt="sun" >
+                                            <img id="weatherIMG" src="sunny.jpeg" alt="sun" >
                                                 <div class="col-sm-5 weatherInfo">
                                                     <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
                                                         <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
@@ -143,20 +143,20 @@
                                                             out.println("<h3 id=\"city-temp\">" + "Clouds:   " + cwd.getCloudData().getCloud() + " %" + "</h3>");
 
 
-                                                        %>  </div>   <div class="col-sm-4 predictions">
-                                                            <% if (temp > 5 && temp < 35) {
+                                                        %>  </div>   <div class="col-sm-5" id="predictions">
+                                                        <% if (temp > 5 && temp < 35) {
                                                             if (humidity > 30 && humidity < 60) {
-                                                                out.println("<h3>It's a perfect day for exercise</h3>");
-                                                                out.println("<h3>What about a walk?</h3>");
+                                                                out.println("<hid=\"prediction-font\">&ldquo;It's a perfect day for exercise</h3>");
+                                                                    out.println("<h3>What about a walk? &rdquo;</h3>");
                                                             } else {
-                                                                    out.println("<h3>Quite moist out there, better workout at home</h3>");
+                                                                    out.println("<h3 id=\"prediction-font\">&ldquo;Quite moist out there, better workout at home &rdquo;</h3>");
 
                                                                 }
 
 
                                                         } else if (temp < 5) {
-                                                            out.println("<h3>It's cold outside</h3>");
-                                                            out.println("<h3>It's better stay home and enjoy a hot chocolate!</h3>");
+                                                            out.println("<h3 id=\"prediction-font\">&ldquo; It's cold outside</h3>");
+                                                                out.println("<h3>It's better stay home and enjoy a hot chocolate! &rdquo;</h3>");
 
     }
                                                     %>
