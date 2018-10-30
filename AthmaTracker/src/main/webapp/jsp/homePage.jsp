@@ -126,7 +126,7 @@
                                             %><% } else {
                                                 /*SUNNY WEATHER*/
                                             %>
-                                            <img id="weatherIMG" src="sunny.jpeg" alt="sun" >
+                                            <img id="weatherIMG" src="sunn.jpg" alt="sun" >
                                                 <div class="col-sm-5 weatherInfo">
                                                     <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
                                                         <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
@@ -145,9 +145,9 @@
 
                                                         %>  </div>   <div class="col-sm-5" id="predictions">
                                                         <% if (temp > 5 && temp < 35) {
-                                                            if (humidity > 30 && humidity < 60) {
-                                                                out.println("<hid=\"prediction-font\">&ldquo;It's a perfect day for exercise</h3>");
-                                                                    out.println("<h3>What about a walk? &rdquo;</h3>");
+                                                            if (humidity > 30 && humidity < 65) {
+                                                                out.println("<h3 id=\"prediction-font\">&ldquo;It's a perfect day for exercise</h3>");
+                                                                    out.println("<h3 id=\"prediction-font\">What about a walk? &rdquo;</h3>");
                                                             } else {
                                                                     out.println("<h3 id=\"prediction-font\">&ldquo;Quite moist out there, better workout at home &rdquo;</h3>");
 

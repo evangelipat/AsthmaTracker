@@ -42,67 +42,17 @@ public class ExportServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String email;
         try (PrintWriter out = response.getWriter()) {
+            String fileType = request.getParameter("fileType");
             email = request.getSession().getAttribute("email").toString();
 
             List<Logbook> logbooks = new ArrayList<>();
             logbooks = LogbookDB.getLogbook(request.getSession().getAttribute("email").toString());
 
-            FileWriter fileWriter = new FileWriter("C:/Users/eveli/Desktop/logbookData.txt");
-            try (PrintWriter printWriter = new PrintWriter(fileWriter)) {
-
-                printWriter.println("Logbook Data");
-
-                for (int i = 0; i < logbooks.size(); i++) {
-                    Logbook logbook = logbooks.get(i);
-
-                    printWriter.println("Record created: " + logbook.getCreated());
-
-                    if (!logbook.getAttack_date().isEmpty()) {
-
-                        printWriter.print("Attack Date: " + logbook.getAttack_date() + " Duration: " + logbook.getAttack_duration() + " "
-                                + logbook.getUnit() + " Triggers: " + logbook.getAttack_triggers() + "  ");
-                    } else {
-                        printWriter.print("Attack Date:  -    Duration: -   Triggers:  -   ");
-
-                    }
-                    if (!logbook.getPeakflow_date().isEmpty()) {
-                        printWriter.println("Peak-Flow Date: " + logbook.getPeakflow_date() + " Value: " + logbook.getPeakflow_value() + " (l/min)" + "  ");
-                    } else {
-                        printWriter.println("Peak-Flow Date:  -    Value:  -   ");
-
-                    }
-                    printWriter.print("Symptoms: ");
-                    if (logbook.getWheeze() == 1) {
-                        printWriter.print("wheeze ");
-                    }
-                    if (logbook.getCough() == 1) {
-                        printWriter.print("cough ");
-                    }
-                    if (logbook.getPhlegm() == 1) {
-                        printWriter.print("plegm ");
-                    }
-                    if (logbook.getTightness() == 1) {
-                        printWriter.print("chest tightness ");
-                    }
-                    if (logbook.getBreathing() == 1) {
-                        printWriter.print("difficulty breathing ");
-                    }
-                    if (logbook.getWakeup() == 1) {
-                        printWriter.print("symptoms wake me up at night or early morning ");
-                    }
-                    printWriter.println("");
-
-
-                    if (!logbook.getNotes().isEmpty()) {
-                        printWriter.print("Notes:" + logbook.getNotes());
-
-                    }
-                    printWriter.println("");
-                    printWriter.println("");
-                }
-
+            if (fileType.equals("txt")) {
+                fileTXT(logbooks);
+            } else {
+                fileCSV(logbooks);
             }
-
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ExportServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -149,4 +99,129 @@ public class ExportServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    public static void fileTXT(List<Logbook> logbooks) throws IOException {
+        FileWriter fileWriter = new FileWriter("C:/Users/eveli/Desktop/logbookTXT.txt");
+        try (PrintWriter printWriter = new PrintWriter(fileWriter)) {
+
+            printWriter.println("Logbook Data");
+
+            for (int i = 0; i < logbooks.size(); i++) {
+                Logbook logbook = logbooks.get(i);
+
+                printWriter.println("Record created: " + logbook.getCreated());
+
+                if (!logbook.getAttack_date().isEmpty()) {
+
+                    printWriter.print("Attack Date: " + logbook.getAttack_date() + " Duration: " + logbook.getAttack_duration() + " "
+                            + logbook.getUnit() + " Triggers: " + logbook.getAttack_triggers() + "  ");
+                } else {
+                    printWriter.print("Attack Date:  -    Duration: -   Triggers:  -   ");
+
+                }
+                if (!logbook.getPeakflow_date().isEmpty()) {
+                    printWriter.println("Peak-Flow Date: " + logbook.getPeakflow_date() + " Value: " + logbook.getPeakflow_value() + " (l/min)" + "  ");
+                } else {
+                    printWriter.println("Peak-Flow Date:  -    Value:  -   ");
+
+                }
+                printWriter.print("Symptoms: ");
+                if (logbook.getWheeze() == 1) {
+                    printWriter.print("wheeze ");
+                }
+                if (logbook.getCough() == 1) {
+                    printWriter.print("cough ");
+                }
+                if (logbook.getPhlegm() == 1) {
+                    printWriter.print("plegm ");
+                }
+                if (logbook.getTightness() == 1) {
+                    printWriter.print("chest tightness ");
+                }
+                if (logbook.getBreathing() == 1) {
+                    printWriter.print("difficulty breathing ");
+                }
+                if (logbook.getWakeup() == 1) {
+                    printWriter.print("symptoms wake me up at night or early morning ");
+                }
+                printWriter.println("");
+
+                if (!logbook.getNotes().isEmpty()) {
+                    printWriter.print("Notes:" + logbook.getNotes());
+
+                }
+                printWriter.println("");
+                printWriter.println("");
+            }
+
+        }
+
+    }
+
+    public static void fileCSV(List<Logbook> logbooks) throws IOException {
+
+        FileWriter fileWriter = new FileWriter("C:/Users/eveli/Desktop/logbookCSV.csv");
+        try (PrintWriter printWriter = new PrintWriter(fileWriter)) {
+            printWriter.println("Created, Attack Date, Duration, Unit, Triggers, PeakFlow Date, Value, Wheeze, Cough, Plegm, Chest Tightness, Difficulty Breathing, Wake up at night, Notes");
+
+            for (int i = 0; i < logbooks.size(); i++) {
+                Logbook logbook = logbooks.get(i);
+
+                printWriter.print(logbook.getCreated());
+                if (!logbook.getAttack_date().isEmpty()) {
+
+                    printWriter.print("," + logbook.getAttack_date() + "," + logbook.getAttack_duration() + ","
+                            + logbook.getUnit() + " ," + logbook.getAttack_triggers());
+                } else {
+                    printWriter.print(", , , , ");
+
+                }
+                if (!logbook.getPeakflow_date().isEmpty()) {
+                    printWriter.print("," + logbook.getPeakflow_date() + "," + logbook.getPeakflow_value());
+                } else {
+                    printWriter.print(", , ");
+
+                }
+
+                if (logbook.getWheeze() == 1) {
+                    printWriter.print(", yes");
+                } else {
+                    printWriter.print(", no");
+                }
+                if (logbook.getCough() == 1) {
+                    printWriter.print(", yes");
+                } else {
+                    printWriter.print(", no");
+                }
+
+                if (logbook.getPhlegm() == 1) {
+                    printWriter.print(", yes");
+                } else {
+                    printWriter.print(", no");
+                }
+                if (logbook.getTightness() == 1) {
+                    printWriter.print(", yes");
+                } else {
+                    printWriter.print(", no");
+                }
+                if (logbook.getBreathing() == 1) {
+                    printWriter.print(", yes");
+                } else {
+                    printWriter.print(", no");
+                }
+                if (logbook.getWakeup() == 1) {
+                    printWriter.print(", yes");
+                } else {
+                    printWriter.print(", no");
+                }
+
+                if (!logbook.getNotes().isEmpty()) {
+                    printWriter.println("," + logbook.getNotes());
+                } else {
+                    printWriter.println(", ");
+                }
+            }
+
+        }
+
+    }
 }

@@ -134,6 +134,8 @@
                                     <div class="col-sm-5" id="logbook">  <%--calendar--%>
 
                                         <div class="col-sm-12"> <%--notes--%>
+                                            <h4 id="colors">History</h4>
+
                                             <%
                                                 List<Logbook> logbooks = new ArrayList<>();
                                                 logbooks = LogbookDB.getLogbook(request.getSession().getAttribute("email").toString());
@@ -162,7 +164,11 @@
                                         </div>
                                         <div class="col-sm-12"  id="browseMessage"></div>
                                         <div class="col-sm-12"  id="exportdata">
-                                            <button class="btn btn-link" id="exportBtn" onclick="exportData();">Export data as txt  <i class="fa fa-share-square-o"></i></button>
+                                            <label><i class="fa fa-share-square-o"></i> Export data as:</label>
+                                            <button class="btn btn-link" id="exportBtn" onclick="exportData('txt');">txt</button>
+                                            <label>or</label>
+                                            <button class="btn btn-link" id="exportBtn" onclick="exportData('csv');">csv</button>
+
                                             <br>
                                         </div>
 

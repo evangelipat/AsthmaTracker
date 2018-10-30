@@ -36,11 +36,11 @@ and open the template in the editor.
 }
 #predictions{
     position: absolute;
-    top: 26%;
+    top: 23%;
     left: 47%;
 }
 #prediction-font{
-    font-size: 48px;
+    font-size: 46px;
     font-style: oblique;
     font-weight: 900;
     color: aliceblue;

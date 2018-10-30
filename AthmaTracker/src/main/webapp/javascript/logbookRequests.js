@@ -162,7 +162,9 @@ function deleteNote(id) {
 
 }
 
-function exportData() {
+function exportData(type) {
+    var fileType = type;
+
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
 
@@ -182,7 +184,6 @@ function exportData() {
     xhr.setRequestHeader('Content-type',
             'application/x-www-form-urlencoded');
 
-    xhr.send();
-
+    xhr.send('fileType=' + fileType);
 
 }
