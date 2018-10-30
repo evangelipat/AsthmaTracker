@@ -180,7 +180,7 @@ function addMedicationRow() {
 
 
 
-function saveChanges() {
+function saveChangesMedication() {
 
     if (count === 0) {
 

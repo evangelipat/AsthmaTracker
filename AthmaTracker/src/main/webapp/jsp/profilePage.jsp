@@ -100,7 +100,7 @@
             </div>
             <div class="col-sm-2">
                 <button id= "add" type="button" class="btn btn-link" onclick="addMedicationRow();">Add+</button>
-                <button id= "save" type="button" class="btn btn-link" onclick="saveChanges();">Save</button>
+                <button id= "save" type="button" class="btn btn-link" onclick="saveChangesMedication();">Save</button>
             </div>
             <div class="col-sm-12">
                 <div class="col-sm-7"></div>

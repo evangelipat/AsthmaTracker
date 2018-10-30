@@ -63,6 +63,7 @@
         <div class="col-sm-12" id="weather">
             <br>
                 <%                      double humidity = 0;
+                                        int temperature = 0;
                                         double temp = 0;
                                         try {
                                             OWM owm = new OWM("943ed901c118ec454eaac8992da7b77b");
@@ -80,10 +81,10 @@
                                         <div class=" col-sm-5 weatherInfo">
                                             <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
                                                 <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
-                                                        temp = cwd.getMainData().getTemp();
-                                                        temp = temp - 273.15;
+                                                        temp = cwd.getMainData().getTemp() - 273.15;
+                                                            temperature = (int) temp;
                                                         /*Kelvin to Celcius*/
-                                                        out.println("<h3 id=\"city-temp\">" + "Temperature:   " + temp + " °C" + "</h3>");
+                                                        out.println("<h3 id=\"city-temp\">" + "Temperature:   " + temperature + " °C" + "</h3>");
                                                     }
                                                     out.println("<h3 id=\"city-temp\">" + "Rain:   " + cwd.getRainData().getPrecipVol3h() + " mm" + "</h3>");
                                                     if (cwd.getMainData().hasHumidity()) {
@@ -95,7 +96,7 @@
 
                                                 %>
                                         </div>   <div class="col-sm-5" id="predictions">
-                                            <h3 id="prediction-font">&ldquo;Be careful, the rain is not the ideal weather for workout</h3>
+                                            <h3 id="prediction-font">&ldquo;Be careful, rain is not the ideal weather for workout</h3>
                                             <h3 id="prediction-font">Better, take a break!  &rdquo;</h3>
                                         </div>
                                         <%  } else if (cwd.hasSnowData()) {
@@ -107,10 +108,10 @@
                                             <div class="col-sm-5 snow">
                                                 <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
                                                     <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
-                                                            temp = cwd.getMainData().getTemp();
-                                                            temp = temp - 273.15;
-                                                            /*Kelvin to Celcius*/
-                                                            out.println("<h3 id=\"city-temp\">" + "Temperature:   " + temp + " °C" + "</h3>");
+                                                            temp = cwd.getMainData().getTemp() - 273.15;
+                                                                temperature = (int) temp;
+                                                                    /*Kelvin to Celcius*/
+                                                                    out.println("<h3 id=\"city-temp\">" + "Temperature:   " + temperature + " °C" + "</h3>");
                                                         }
                                                         out.println("<h3 id=\"city-temp\">" + "Snow:   " + cwd.getSnowData().getSnowVol3h() + " mm" + "</h3>");
 
@@ -130,10 +131,10 @@
                                                 <div class="col-sm-5 weatherInfo">
                                                     <% out.println("<h2 id=\"city-temp\">" + cwd.getCityName() + "</h2>"); %><br>
                                                         <%  if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
-                                                                temp = cwd.getMainData().getTemp();
-                                                                temp = temp - 273.15;
-                                                                /*Kelvin to Celcius*/
-                                                                out.println("<h3 id=\"city-temp\">" + "Temperature:   " + temp + " °C" + "</h3>");
+                                                                temp = cwd.getMainData().getTemp() - 273.15;
+                                                                    temperature = (int) temp;
+                                                                        /*Kelvin to Celcius*/
+                                                                        out.println("<h3 id=\"city-temp\">" + "Temperature:   " + temperature + " °C" + "</h3>");
                                                             }
                                                             if (cwd.getMainData().hasHumidity()) {
                                                                 out.println("<h3 id=\"city-temp\">" + "Humidity:   " + cwd.getMainData().getHumidity() + " %" + "</h3>");
@@ -144,19 +145,18 @@
 
 
                                                         %>  </div>   <div class="col-sm-5" id="predictions">
-                                                        <% if (temp > 5 && temp < 35) {
-                                                            if (humidity > 30 && humidity < 65) {
+                                                            <% if (temperature > 5 && temperature < 35) {
+                                                            if (humidity < 65) {
                                                                 out.println("<h3 id=\"prediction-font\">&ldquo;It's a perfect day for exercise</h3>");
-                                                                    out.println("<h3 id=\"prediction-font\">What about a walk? &rdquo;</h3>");
+                                                                out.println("<h3 id=\"prediction-font\">What about a walk? &rdquo;</h3>");
                                                             } else {
-                                                                    out.println("<h3 id=\"prediction-font\">&ldquo;Quite moist out there, better workout at home &rdquo;</h3>");
+                                                                out.println("<h3 id=\"prediction-font\">&ldquo;Quite moist out there,</h3>");
+                                                                out.println("<h3 id=\"prediction-font\">better workout at home&rdquo;</h3>");
+                                                            }
 
-                                                                }
-
-
-                                                        } else if (temp < 5) {
+                                                        } else if (temperature < 5) {
                                                             out.println("<h3 id=\"prediction-font\">&ldquo; It's cold outside.</h3>");
-                                                                out.println("<h3 id=\"prediction-font\">It's better stay home and enjoy a hot chocolate! &rdquo;</h3>");
+                                                            out.println("<h3 id=\"prediction-font\">It's better stay home and enjoy a hot chocolate! &rdquo;</h3>");
 
     }
                                                     %>
@@ -171,6 +171,8 @@
                                                                     }
     } catch (Exception ex) {
             System.out.println("Exception: " + ex);
+            out.println("<img id=\"weatherIMG\" src=\"no.jpeg\" alt=\"no\" ><div class=\"weatherInfo\">");
+            out.println("<h2 id=\"city-temp\">" + "There are no weather data, wrong city name " + "</h2><br></div>");
         }
                                                             %>
                                                     </div>
