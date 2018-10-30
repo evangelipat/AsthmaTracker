@@ -155,8 +155,8 @@
 
 
                                                         } else if (temp < 5) {
-                                                            out.println("<h3 id=\"prediction-font\">&ldquo; It's cold outside</h3>");
-                                                                out.println("<h3>It's better stay home and enjoy a hot chocolate! &rdquo;</h3>");
+                                                            out.println("<h3 id=\"prediction-font\">&ldquo; It's cold outside.</h3>");
+                                                                out.println("<h3 id=\"prediction-font\">It's better stay home and enjoy a hot chocolate! &rdquo;</h3>");
 
     }
                                                     %>

@@ -39,7 +39,8 @@ public class WeatherServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             email = request.getSession().getAttribute("email").toString();
             String city = request.getParameter("city");
-            double temp;
+            double temp = 0;
+            double humidity = 0;
 
             try {
                 out.println("<div class=\"col-sm-12\" id=\"weather\"><br>");
@@ -68,6 +69,10 @@ public class WeatherServlet extends HttpServlet {
                             out.println("<h3 id=\"city-temp\">" + "Wind:   " + cwd.getWindData().getSpeed() + " m/s" + "</h3>");
                             out.println("<h3 id=\"city-temp\">" + "Clouds:   " + cwd.getCloudData().getCloud() + " %" + "</h3></div>");
 
+                            out.println("<div class=\"col-sm-5\" id=\"predictions\">");
+                            out.println("<h3 id=\"prediction-font\">&ldquo;Be careful, the rain is not the ideal weather for workout</h3>");
+                            out.println("<h3 id=\"prediction-font\">Better, take a break!  &rdquo;</h3></div>");
+
                         } else if (cwd.hasSnowData()) {
                             /*SNOW*/
                             out.println("<img id=\"weatherIMG\" src=\"snow.jpeg\" alt=\"snow\" ><div class=\"snow\">");
@@ -82,9 +87,13 @@ public class WeatherServlet extends HttpServlet {
                             out.println("<h3 id=\"city-temp\">" + "Snow:   " + cwd.getSnowData().getSnowVol3h() + " mm" + "</h3>");
                             out.println("<h3 id=\"city-temp\">" + "Wind:   " + cwd.getWindData().getSpeed() + " m/s" + "</h3>");
                             out.println("<h3 id=\"city-temp\">" + "Clouds:   " + cwd.getCloudData().getCloud() + " %" + "</h3></div>");
+
+                            out.println("<div class=\"col-sm-5\" id=\"predictions\">");
+                            out.println("<h3 id=\"prediction-font\">&ldquo;Be careful, the cold air may trigger an asthma attack</h3>");
+                            out.println("<h3 id=\"prediction-font\">Take your meds with you!  &rdquo;</h3></div>");
                         } else {
                             /*SUNNY WEATHER*/
-                            out.println("<img id=\"weatherIMG\" src=\"sun.jpeg\" alt=\"sun\" ><div class=\"weatherInfo\">");
+                            out.println("<img id=\"weatherIMG\" src=\"sunn.jpg\" alt=\"sun\" ><div class=\"weatherInfo\">");
                             out.println("<h2 id=\"city-temp\">" + city + "</h2><br>");
 
                             if (cwd.hasMainData() && cwd.getMainData().hasTemp()) {
@@ -95,9 +104,27 @@ public class WeatherServlet extends HttpServlet {
                             }
                             if (cwd.getMainData().hasHumidity()) {
                                 out.println("<h3 id=\"city-temp\">" + "Humidity:   " + cwd.getMainData().getHumidity() + " %" + "</h3>");
+                                humidity = cwd.getMainData().getHumidity();
                             }
                             out.println("<h3 id=\"city-temp\">" + "Wind:   " + cwd.getWindData().getSpeed() + " m/s" + "</h3>");
                             out.println("<h3 id=\"city-temp\">" + "Clouds:   " + cwd.getCloudData().getCloud() + " %" + "</h3></div>");
+
+                            out.println("<div class=\"col-sm-5\" id=\"predictions\">");
+
+                            if (temp > 5 && temp < 35) {
+                                if (humidity > 30 && humidity < 65) {
+                                    out.println("<h3 id=\"prediction-font\">&ldquo;It's a perfect day for exercise</h3>");
+                                    out.println("<h3 id=\"prediction-font\">What about a walk? &rdquo;</h3> </div>");
+                                } else {
+                                    out.println("<h3 id=\"prediction-font\">&ldquo;Quite moist out there, better workout at home &rdquo;</h3> </div>");
+
+                                }
+
+                            } else if (temp < 5) {
+                                out.println("<h3 id=\"prediction-font\">&ldquo; It's cold outside</h3>");
+                                out.println("<h3 id=\"prediction-font\">It's better stay home and enjoy a hot chocolate! &rdquo;</h3> </div>");
+
+                            }
 
                         }
 
